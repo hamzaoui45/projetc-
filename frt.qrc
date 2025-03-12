@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>LAKAHNI__4_-removebg-preview.png</file>
+        <file>LAKAHNI__5_-removebg-preview (1).png</file>
+    </qresource>
+</RCC>

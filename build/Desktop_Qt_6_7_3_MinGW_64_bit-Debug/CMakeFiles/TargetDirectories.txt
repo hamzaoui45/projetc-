@@ -1,0 +1,9 @@
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen_timestamp_deps.dir
+C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir
