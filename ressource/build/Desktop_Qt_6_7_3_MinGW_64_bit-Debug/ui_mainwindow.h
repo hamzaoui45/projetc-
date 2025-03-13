@@ -1,0 +1,702 @@
+/********************************************************************************
+** Form generated from reading UI file 'mainwindow.ui'
+**
+** Created by: Qt User Interface Compiler version 6.7.3
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_MAINWINDOW_H
+#define UI_MAINWINDOW_H
+
+#include <QtCore/QVariant>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QDoubleSpinBox>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableView>
+#include <QtWidgets/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_MainWindow
+{
+public:
+    QWidget *centralwidget;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_13;
+    QLabel *label_14;
+    QLabel *label_7;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QLineEdit *recherchetext;
+    QLabel *label_10;
+    QComboBox *critere_recherche;
+    QPushButton *Rechercher;
+    QLabel *label_15;
+    QLabel *label_16;
+    QLabel *label_19;
+    QLabel *label_20;
+    QPushButton *export_pdf;
+    QPushButton *pushButton_11;
+    QTableView *tableView;
+    QLabel *label_18;
+    QLabel *label_28;
+    QLineEdit *suppref;
+    QPushButton *supprimer;
+    QPushButton *trier;
+    QComboBox *critere_tri;
+    QComboBox *ordre_tri;
+    QPushButton *pushButton_12;
+    QWidget *tab_2;
+    QRadioButton *hstock;
+    QLabel *label_4;
+    QRadioButton *dispo;
+    QLabel *label_5;
+    QLabel *label_21;
+    QLabel *label_13;
+    QLineEdit *nom;
+    QLabel *label_22;
+    QLabel *label_23;
+    QPushButton *valider_ajout;
+    QPushButton *retour_ajout;
+    QSpinBox *qteSpinBox;
+    QDoubleSpinBox *PrixSpinbox;
+    QWidget *tab_5;
+    QLabel *label_8;
+    QLineEdit *ref;
+    QRadioButton *dispom;
+    QLabel *label_9;
+    QLineEdit *qtem;
+    QLabel *label_24;
+    QLineEdit *nomm;
+    QRadioButton *horsstockm;
+    QLineEdit *prixm;
+    QLabel *label_25;
+    QLabel *label_26;
+    QPushButton *pushButton_21;
+    QLabel *label_27;
+    QPushButton *recherche_modif;
+    QLabel *label_12;
+    QMenuBar *menubar;
+    QStatusBar *statusbar;
+
+    void setupUi(QMainWindow *MainWindow)
+    {
+        if (MainWindow->objectName().isEmpty())
+            MainWindow->setObjectName("MainWindow");
+        MainWindow->resize(1166, 721);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 217, 217)"));
+        centralwidget = new QWidget(MainWindow);
+        centralwidget->setObjectName("centralwidget");
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(-30, -40, 1211, 131));
+        label->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(10, 120, 171, 551));
+        label_2->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(20, 100, 151, 51));
+        label_3->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_4 = new QPushButton(centralwidget);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(20, 200, 151, 41));
+        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_6 = new QPushButton(centralwidget);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(20, 300, 151, 41));
+        pushButton_6->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_7 = new QPushButton(centralwidget);
+        pushButton_7->setObjectName("pushButton_7");
+        pushButton_7->setGeometry(QRect(20, 390, 151, 41));
+        pushButton_7->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_8 = new QPushButton(centralwidget);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(20, 490, 151, 41));
+        pushButton_8->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_9 = new QPushButton(centralwidget);
+        pushButton_9->setObjectName("pushButton_9");
+        pushButton_9->setGeometry(QRect(20, 580, 151, 41));
+        pushButton_9->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_13 = new QPushButton(centralwidget);
+        pushButton_13->setObjectName("pushButton_13");
+        pushButton_13->setGeometry(QRect(1010, 30, 131, 29));
+        pushButton_13->setStyleSheet(QString::fromUtf8("color : black;\n"
+"background-color: rgb(81, 182, 182);"));
+        label_14 = new QLabel(centralwidget);
+        label_14->setObjectName("label_14");
+        label_14->setGeometry(QRect(-10, 0, 161, 91));
+        label_14->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_14->setTextFormat(Qt::TextFormat::RichText);
+        label_14->setPixmap(QPixmap(QString::fromUtf8(":/logo.png")));
+        label_14->setScaledContents(true);
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(20, 60, 101, 20));
+        label_7->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        tabWidget = new QTabWidget(centralwidget);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(200, 110, 941, 561));
+        tabWidget->setStyleSheet(QString::fromUtf8("/*background-color: rgb(81, 182, 182);*/\n"
+"QTabBar::tab {\n"
+"    background-color: rgb(81, 182, 182); /* Fond transparent par d\303\251faut */\n"
+"    color: black; /* Couleur du texte */\n"
+"    border: 1px solid #C2C7CB; /* Bordure */\n"
+"    border-bottom-color: transparent; /* Supprime la bordure inf\303\251rieure */\n"
+"    min-width: 8ex;\n"
+"    padding: 2px 10px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    background-color: #E0E0E0; /* Couleur de fond de l'onglet s\303\251lectionn\303\251 */\n"
+"    border-color: #C2C7CB;\n"
+"    border-bottom-color: transparent;\n"
+"}\n"
+"\n"
+"QTabBar::tab:hover {\n"
+"    background-color: #F0F0F0; /* Couleur de fond de l'onglet survol\303\251 */\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+""));
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        recherchetext = new QLineEdit(tab);
+        recherchetext->setObjectName("recherchetext");
+        recherchetext->setGeometry(QRect(180, 60, 113, 28));
+        recherchetext->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color: black;"));
+        label_10 = new QLabel(tab);
+        label_10->setObjectName("label_10");
+        label_10->setGeometry(QRect(10, 20, 301, 111));
+        label_10->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        critere_recherche = new QComboBox(tab);
+        critere_recherche->addItem(QString());
+        critere_recherche->addItem(QString());
+        critere_recherche->setObjectName("critere_recherche");
+        critere_recherche->setGeometry(QRect(20, 60, 111, 28));
+        critere_recherche->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
+        Rechercher = new QPushButton(tab);
+        Rechercher->setObjectName("Rechercher");
+        Rechercher->setGeometry(QRect(110, 90, 101, 31));
+        Rechercher->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        label_15 = new QLabel(tab);
+        label_15->setObjectName("label_15");
+        label_15->setGeometry(QRect(410, 10, 141, 41));
+        label_15->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_16 = new QLabel(tab);
+        label_16->setObjectName("label_16");
+        label_16->setGeometry(QRect(80, 10, 161, 41));
+        label_16->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_19 = new QLabel(tab);
+        label_19->setObjectName("label_19");
+        label_19->setGeometry(QRect(330, 20, 301, 111));
+        label_19->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        label_20 = new QLabel(tab);
+        label_20->setObjectName("label_20");
+        label_20->setGeometry(QRect(10, 140, 921, 371));
+        label_20->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        export_pdf = new QPushButton(tab);
+        export_pdf->setObjectName("export_pdf");
+        export_pdf->setGeometry(QRect(430, 470, 131, 29));
+        export_pdf->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        pushButton_11 = new QPushButton(tab);
+        pushButton_11->setObjectName("pushButton_11");
+        pushButton_11->setGeometry(QRect(210, 470, 131, 29));
+        pushButton_11->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        tableView = new QTableView(tab);
+        tableView->setObjectName("tableView");
+        tableView->setGeometry(QRect(50, 170, 851, 281));
+        tableView->setStyleSheet(QString::fromUtf8("QTableView {\n"
+"    background-color:rgb(5, 105, 107); /* Couleur de fond du tableau */\n"
+"    border: 1px solid #C2C7CB; /* Bordure du tableau */\n"
+"    gridline-color: #E0E0E0; /* Couleur des lignes de la grille */\n"
+"    selection-background-color: #AEC6CF; /* Couleur de fond de la s\303\251lection */\n"
+"    selection-color: black; /* Couleur du texte de la s\303\251lection */\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    padding: 5px; /* Marge interne des cellules */\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: #AEC6CF; /* Couleur de fond de la cellule s\303\251lectionn\303\251e */\n"
+"    color: black; /* Couleur du texte de la cellule s\303\251lectionn\303\251e */\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #F0F0F0; /* Couleur de fond des en-t\303\252tes */\n"
+"	color:black;\n"
+"    border: 1px solid #C2C7CB; /* Bordure des en-t\303\252tes */\n"
+"    padding: 5px; /* Marge interne des en-t\303\252tes */\n"
+"}\n"
+"\n"
+"QHeaderView::section:checked {\n"
+"    bac"
+                        "kground-color: #D0D0D0; /* Couleur de fond de l'en-t\303\252te coch\303\251 */\n"
+"}\n"
+"\n"
+"QHeaderView::section:hover {\n"
+"    background-color: #E0E0E0; /* Couleur de fond de l'en-t\303\252te survol\303\251 */\n"
+"}"));
+        label_18 = new QLabel(tab);
+        label_18->setObjectName("label_18");
+        label_18->setGeometry(QRect(730, 10, 141, 41));
+        label_18->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_28 = new QLabel(tab);
+        label_28->setObjectName("label_28");
+        label_28->setGeometry(QRect(650, 20, 281, 111));
+        label_28->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        suppref = new QLineEdit(tab);
+        suppref->setObjectName("suppref");
+        suppref->setGeometry(QRect(670, 70, 113, 28));
+        suppref->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:black;"));
+        supprimer = new QPushButton(tab);
+        supprimer->setObjectName("supprimer");
+        supprimer->setGeometry(QRect(820, 70, 91, 31));
+        supprimer->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        trier = new QPushButton(tab);
+        trier->setObjectName("trier");
+        trier->setGeometry(QRect(440, 90, 91, 31));
+        trier->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        critere_tri = new QComboBox(tab);
+        critere_tri->addItem(QString());
+        critere_tri->addItem(QString());
+        critere_tri->addItem(QString());
+        critere_tri->addItem(QString());
+        critere_tri->addItem(QString());
+        critere_tri->setObjectName("critere_tri");
+        critere_tri->setEnabled(true);
+        critere_tri->setGeometry(QRect(340, 60, 111, 28));
+        critere_tri->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color: black;"));
+        ordre_tri = new QComboBox(tab);
+        ordre_tri->addItem(QString());
+        ordre_tri->addItem(QString());
+        ordre_tri->setObjectName("ordre_tri");
+        ordre_tri->setEnabled(true);
+        ordre_tri->setGeometry(QRect(520, 60, 101, 28));
+        ordre_tri->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color: black;"));
+        pushButton_12 = new QPushButton(tab);
+        pushButton_12->setObjectName("pushButton_12");
+        pushButton_12->setGeometry(QRect(690, 470, 131, 29));
+        pushButton_12->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        tabWidget->addTab(tab, QString());
+        label_28->raise();
+        label_20->raise();
+        label_19->raise();
+        label_10->raise();
+        recherchetext->raise();
+        critere_recherche->raise();
+        Rechercher->raise();
+        label_15->raise();
+        label_16->raise();
+        export_pdf->raise();
+        pushButton_11->raise();
+        tableView->raise();
+        label_18->raise();
+        suppref->raise();
+        supprimer->raise();
+        trier->raise();
+        critere_tri->raise();
+        ordre_tri->raise();
+        pushButton_12->raise();
+        tab_2 = new QWidget();
+        tab_2->setObjectName("tab_2");
+        hstock = new QRadioButton(tab_2);
+        hstock->setObjectName("hstock");
+        hstock->setGeometry(QRect(380, 370, 141, 31));
+        hstock->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color : black\n"
+""));
+        label_4 = new QLabel(tab_2);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(10, 50, 921, 431));
+        label_4->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        dispo = new QRadioButton(tab_2);
+        dispo->setObjectName("dispo");
+        dispo->setGeometry(QRect(380, 340, 141, 26));
+        dispo->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color : black;\n"
+""));
+        label_5 = new QLabel(tab_2);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(300, 30, 291, 41));
+        label_5->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_21 = new QLabel(tab_2);
+        label_21->setObjectName("label_21");
+        label_21->setGeometry(QRect(50, 110, 121, 31));
+        QFont font;
+        font.setKerning(true);
+        label_21->setFont(font);
+        label_21->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_13 = new QLabel(tab_2);
+        label_13->setObjectName("label_13");
+        label_13->setGeometry(QRect(390, 110, 121, 31));
+        label_13->setFont(font);
+        label_13->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        nom = new QLineEdit(tab_2);
+        nom->setObjectName("nom");
+        nom->setGeometry(QRect(30, 150, 161, 28));
+        nom->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        label_22 = new QLabel(tab_2);
+        label_22->setObjectName("label_22");
+        label_22->setGeometry(QRect(40, 300, 121, 31));
+        label_22->setFont(font);
+        label_22->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_23 = new QLabel(tab_2);
+        label_23->setObjectName("label_23");
+        label_23->setGeometry(QRect(390, 290, 121, 31));
+        label_23->setFont(font);
+        label_23->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        valider_ajout = new QPushButton(tab_2);
+        valider_ajout->setObjectName("valider_ajout");
+        valider_ajout->setGeometry(QRect(720, 230, 121, 41));
+        valider_ajout->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        retour_ajout = new QPushButton(tab_2);
+        retour_ajout->setObjectName("retour_ajout");
+        retour_ajout->setGeometry(QRect(720, 300, 121, 41));
+        retour_ajout->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        qteSpinBox = new QSpinBox(tab_2);
+        qteSpinBox->setObjectName("qteSpinBox");
+        qteSpinBox->setGeometry(QRect(380, 150, 151, 31));
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(qteSpinBox->sizePolicy().hasHeightForWidth());
+        qteSpinBox->setSizePolicy(sizePolicy);
+        qteSpinBox->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        PrixSpinbox = new QDoubleSpinBox(tab_2);
+        PrixSpinbox->setObjectName("PrixSpinbox");
+        PrixSpinbox->setGeometry(QRect(30, 350, 141, 31));
+        PrixSpinbox->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        tabWidget->addTab(tab_2, QString());
+        label_4->raise();
+        hstock->raise();
+        dispo->raise();
+        label_5->raise();
+        label_21->raise();
+        label_13->raise();
+        nom->raise();
+        label_22->raise();
+        label_23->raise();
+        valider_ajout->raise();
+        retour_ajout->raise();
+        qteSpinBox->raise();
+        PrixSpinbox->raise();
+        tab_5 = new QWidget();
+        tab_5->setObjectName("tab_5");
+        label_8 = new QLabel(tab_5);
+        label_8->setObjectName("label_8");
+        label_8->setGeometry(QRect(10, 50, 921, 431));
+        label_8->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        ref = new QLineEdit(tab_5);
+        ref->setObjectName("ref");
+        ref->setGeometry(QRect(750, 150, 161, 28));
+        ref->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:black;"));
+        dispom = new QRadioButton(tab_5);
+        dispom->setObjectName("dispom");
+        dispom->setGeometry(QRect(420, 150, 121, 26));
+        dispom->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color : black;\n"
+""));
+        label_9 = new QLabel(tab_5);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(770, 110, 121, 31));
+        label_9->setFont(font);
+        label_9->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        qtem = new QLineEdit(tab_5);
+        qtem->setObjectName("qtem");
+        qtem->setGeometry(QRect(30, 340, 161, 31));
+        qtem->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        label_24 = new QLabel(tab_5);
+        label_24->setObjectName("label_24");
+        label_24->setGeometry(QRect(60, 120, 121, 31));
+        label_24->setFont(font);
+        label_24->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        nomm = new QLineEdit(tab_5);
+        nomm->setObjectName("nomm");
+        nomm->setGeometry(QRect(40, 160, 161, 28));
+        nomm->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        horsstockm = new QRadioButton(tab_5);
+        horsstockm->setObjectName("horsstockm");
+        horsstockm->setGeometry(QRect(420, 180, 121, 31));
+        horsstockm->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"color : black\n"
+""));
+        prixm = new QLineEdit(tab_5);
+        prixm->setObjectName("prixm");
+        prixm->setGeometry(QRect(380, 340, 161, 31));
+        prixm->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0)"));
+        label_25 = new QLabel(tab_5);
+        label_25->setObjectName("label_25");
+        label_25->setGeometry(QRect(420, 110, 121, 31));
+        label_25->setFont(font);
+        label_25->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_26 = new QLabel(tab_5);
+        label_26->setObjectName("label_26");
+        label_26->setGeometry(QRect(400, 300, 121, 31));
+        label_26->setFont(font);
+        label_26->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_21 = new QPushButton(tab_5);
+        pushButton_21->setObjectName("pushButton_21");
+        pushButton_21->setGeometry(QRect(750, 370, 121, 41));
+        pushButton_21->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        label_27 = new QLabel(tab_5);
+        label_27->setObjectName("label_27");
+        label_27->setGeometry(QRect(50, 300, 121, 31));
+        label_27->setFont(font);
+        label_27->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        recherche_modif = new QPushButton(tab_5);
+        recherche_modif->setObjectName("recherche_modif");
+        recherche_modif->setGeometry(QRect(780, 190, 91, 31));
+        recherche_modif->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}"));
+        label_12 = new QLabel(tab_5);
+        label_12->setObjectName("label_12");
+        label_12->setGeometry(QRect(300, 30, 291, 41));
+        label_12->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        tabWidget->addTab(tab_5, QString());
+        MainWindow->setCentralWidget(centralwidget);
+        label->raise();
+        label_2->raise();
+        label_3->raise();
+        pushButton_4->raise();
+        pushButton_6->raise();
+        pushButton_7->raise();
+        pushButton_8->raise();
+        pushButton_9->raise();
+        pushButton_13->raise();
+        label_14->raise();
+        tabWidget->raise();
+        label_7->raise();
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName("menubar");
+        menubar->setGeometry(QRect(0, 0, 1166, 25));
+        MainWindow->setMenuBar(menubar);
+        statusbar = new QStatusBar(MainWindow);
+        statusbar->setObjectName("statusbar");
+        MainWindow->setStatusBar(statusbar);
+
+        retranslateUi(MainWindow);
+
+        tabWidget->setCurrentIndex(0);
+
+
+        QMetaObject::connectSlotsByName(MainWindow);
+    } // setupUi
+
+    void retranslateUi(QMainWindow *MainWindow)
+    {
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        label->setText(QString());
+        label_2->setText(QString());
+        label_3->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">DASHBOARD</span></p></body></html>", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "Gestion Patients", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "Gestion employ\303\251s", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Gestion ressources", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("MainWindow", "Gestion rendez-vous", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("MainWindow", "Gestion Vaccins", nullptr));
+        pushButton_13->setText(QCoreApplication::translate("MainWindow", "D\303\251connexion", nullptr));
+        label_14->setText(QString());
+        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700;\">LAKAHNI</span></p></body></html>", nullptr));
+        label_10->setText(QString());
+        critere_recherche->setItemText(0, QCoreApplication::translate("MainWindow", "REFERENCE", nullptr));
+        critere_recherche->setItemText(1, QCoreApplication::translate("MainWindow", "NOM", nullptr));
+
+        Rechercher->setText(QCoreApplication::translate("MainWindow", "Rechercher", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Tri</span></p></body></html>", nullptr));
+        label_16->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Recherche</span></p></body></html>", nullptr));
+        label_19->setText(QString());
+        label_20->setText(QString());
+        export_pdf->setText(QCoreApplication::translate("MainWindow", "Export PDF", nullptr));
+        pushButton_11->setText(QCoreApplication::translate("MainWindow", "Statistiques", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">Suppression</span></p></body></html>", nullptr));
+        label_28->setText(QString());
+        supprimer->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        trier->setText(QCoreApplication::translate("MainWindow", "Trier", nullptr));
+        critere_tri->setItemText(0, QCoreApplication::translate("MainWindow", "REFERENCE", nullptr));
+        critere_tri->setItemText(1, QCoreApplication::translate("MainWindow", "NOM", nullptr));
+        critere_tri->setItemText(2, QCoreApplication::translate("MainWindow", "ETAT", nullptr));
+        critere_tri->setItemText(3, QCoreApplication::translate("MainWindow", "QUANTITE", nullptr));
+        critere_tri->setItemText(4, QCoreApplication::translate("MainWindow", "PRIX", nullptr));
+
+        ordre_tri->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
+        ordre_tri->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));
+
+        pushButton_12->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Affichage ressource", nullptr));
+        hstock->setText(QCoreApplication::translate("MainWindow", "Hors stock", nullptr));
+        label_4->setText(QString());
+        dispo->setText(QCoreApplication::translate("MainWindow", "Disponible", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">AJOUT RESSOURCE</span></p></body></html>", nullptr));
+        label_21->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Nom</span></p></body></html>", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Quantit\303\251</span></p></body></html>", nullptr));
+        label_22->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700;\">Prix</span></p></body></html>", nullptr));
+        label_23->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Etat</span></p></body></html>", nullptr));
+        valider_ajout->setText(QCoreApplication::translate("MainWindow", "Valider", nullptr));
+        retour_ajout->setText(QCoreApplication::translate("MainWindow", "Retour", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Ajouter ressource", nullptr));
+        label_8->setText(QString());
+        dispom->setText(QCoreApplication::translate("MainWindow", "Disponible", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">R\303\251f\303\251rence</span></p></body></html>", nullptr));
+        label_24->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Nom</span></p></body></html>", nullptr));
+        horsstockm->setText(QCoreApplication::translate("MainWindow", "Hors stock", nullptr));
+        prixm->setText(QString());
+        label_25->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Etat</span></p></body></html>", nullptr));
+        label_26->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700;\">Prix</span></p></body></html>", nullptr));
+        pushButton_21->setText(QCoreApplication::translate("MainWindow", "Valider", nullptr));
+        label_27->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">Quantit\303\251</span></p></body></html>", nullptr));
+        recherche_modif->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">MODIFIER RESSOURCE</span></p></body></html>", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Modifier ressource", nullptr));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class MainWindow: public Ui_MainWindow {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_MAINWINDOW_H
