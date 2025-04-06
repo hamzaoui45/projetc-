@@ -15,6 +15,9 @@ public:
     explicit log(QWidget *parent = nullptr);
     ~log();
 
+private slots:
+    void on_connect_clicked();
+
 private:
     Ui::log *ui;
 };

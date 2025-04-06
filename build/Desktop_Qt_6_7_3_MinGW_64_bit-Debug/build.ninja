@@ -201,7 +201,7 @@ build Employee.exe: CXX_EXECUTABLE_LINKER__Employee_Debug CMakeFiles/Employee.di
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake-gui.exe -SC:\Users\VIVOBOOK\Documents\Employee -BC:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake-gui.exe -SC:\Users\VIVOBOOK\Documents\Employee -BC:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -213,7 +213,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\Users\VIVOBOOK\Documents\Employee -BC:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -SC:\Users\VIVOBOOK\Documents\Employee -BC:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -231,7 +231,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
@@ -243,7 +243,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -255,7 +255,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -279,7 +279,7 @@ build Employee_autogen: phony CMakeFiles/Employee_autogen Employee_autogen/inclu
 # Custom command for Employee_autogen\timestamp
 
 build Employee_autogen/timestamp Employee_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}Employee_autogen/timestamp ${cmake_ninja_workdir}Employee_autogen/mocs_compilation.cpp: CUSTOM_COMMAND C$:/Qt/6.7.3/mingw_64/bin/moc.exe C$:/Qt/6.7.3/mingw_64/bin/uic.exe || Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutogenInfo.json Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/Employee_autogen/timestamp && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile C:/Users/VIVOBOOK/Documents/Employee C:/Users/VIVOBOOK/Documents/Employee C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/Employee_autogen/deps C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/d/51f34db8b76ee3a66f9d5290432f2315bd829577b80e7102a100f1a4a7ca5618.d"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutogenInfo.json Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/Employee_autogen/timestamp && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile C:/Users/VIVOBOOK/Documents/Employee C:/Users/VIVOBOOK/Documents/Employee C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/Employee_autogen/deps C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/d/51f34db8b76ee3a66f9d5290432f2315bd829577b80e7102a100f1a4a7ca5618.d"
   DESC = Automatic MOC and UIC for target Employee
   depfile = CMakeFiles\d\51f34db8b76ee3a66f9d5290432f2315bd829577b80e7102a100f1a4a7ca5618.d
   deps = gcc
@@ -290,7 +290,7 @@ build Employee_autogen/timestamp Employee_autogen/mocs_compilation.cpp | ${cmake
 # Custom command for Employee_autogen\PZEMLVOXKL\qrc_logo.cpp
 
 build Employee_autogen/PZEMLVOXKL/qrc_logo.cpp | ${cmake_ninja_workdir}Employee_autogen/PZEMLVOXKL/qrc_logo.cpp: CUSTOM_COMMAND logo.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_logo_PZEMLVOXKL_Info.json C$:/Users/VIVOBOOK/Downloads/Vaxhaven__6_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_logo_PZEMLVOXKL_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_logo_PZEMLVOXKL_Info.json Debug"
   DESC = Automatic RCC for logo.qrc
   restat = 1
 
@@ -299,7 +299,7 @@ build Employee_autogen/PZEMLVOXKL/qrc_logo.cpp | ${cmake_ninja_workdir}Employee_
 # Custom command for Employee_autogen\PZEMLVOXKL\qrc_pdf.cpp
 
 build Employee_autogen/PZEMLVOXKL/qrc_pdf.cpp | ${cmake_ninja_workdir}Employee_autogen/PZEMLVOXKL/qrc_pdf.cpp: CUSTOM_COMMAND pdf.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_pdf_PZEMLVOXKL_Info.json C$:/Users/VIVOBOOK/Downloads/Design_sans_titre__11_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_pdf_PZEMLVOXKL_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_pdf_PZEMLVOXKL_Info.json Debug"
   DESC = Automatic RCC for pdf.qrc
   restat = 1
 
@@ -308,7 +308,7 @@ build Employee_autogen/PZEMLVOXKL/qrc_pdf.cpp | ${cmake_ninja_workdir}Employee_a
 # Custom command for Employee_autogen\PZEMLVOXKL\qrc_deconnexion.cpp
 
 build Employee_autogen/PZEMLVOXKL/qrc_deconnexion.cpp | ${cmake_ninja_workdir}Employee_autogen/PZEMLVOXKL/qrc_deconnexion.cpp: CUSTOM_COMMAND deconnexion.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_deconnexion_PZEMLVOXKL_Info.json C$:/Users/VIVOBOOK/Downloads/Design_sans_titre__12_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_deconnexion_PZEMLVOXKL_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_deconnexion_PZEMLVOXKL_Info.json Debug"
   DESC = Automatic RCC for deconnexion.qrc
   restat = 1
 
@@ -317,7 +317,7 @@ build Employee_autogen/PZEMLVOXKL/qrc_deconnexion.cpp | ${cmake_ninja_workdir}Em
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_statfaza.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_statfaza.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_statfaza.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/statfaza.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_statfaza_EWIEGA46WW_Info.json LAKAHNI.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_statfaza_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_statfaza_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for statfaza.qrc
   restat = 1
 
@@ -326,7 +326,7 @@ build Employee_autogen/EWIEGA46WW/qrc_statfaza.cpp | ${cmake_ninja_workdir}Emplo
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_tyy.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_tyy.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_tyy.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/tyy.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_tyy_EWIEGA46WW_Info.json C$:/Users/VIVOBOOK/Documents/Employee/LAKAHNI__2_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_tyy_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_tyy_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for tyy.qrc
   restat = 1
 
@@ -335,7 +335,7 @@ build Employee_autogen/EWIEGA46WW/qrc_tyy.cpp | ${cmake_ninja_workdir}Employee_a
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_frt.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_frt.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_frt.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/frt.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_frt_EWIEGA46WW_Info.json C$:/Users/VIVOBOOK/Documents/Employee/LAKAHNI__5_-removebg-preview$ (1).png C$:/Users/VIVOBOOK/Documents/Employee/LAKAHNI__4_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_frt_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_frt_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for frt.qrc
   restat = 1
 
@@ -344,7 +344,7 @@ build Employee_autogen/EWIEGA46WW/qrc_frt.cpp | ${cmake_ninja_workdir}Employee_a
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_user.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_user.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_user.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/user.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_user_EWIEGA46WW_Info.json C$:/Users/VIVOBOOK/Documents/Employee/Design_sans_titre__13_-removebg-preview.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_user_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_user_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for user.qrc
   restat = 1
 
@@ -353,7 +353,7 @@ build Employee_autogen/EWIEGA46WW/qrc_user.cpp | ${cmake_ninja_workdir}Employee_
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_lkkj.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_lkkj.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_lkkj.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/lkkj.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_lkkj_EWIEGA46WW_Info.json C$:/Users/VIVOBOOK/Documents/Employee/rtu.png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_lkkj_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_lkkj_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for lkkj.qrc
   restat = 1
 
@@ -362,7 +362,7 @@ build Employee_autogen/EWIEGA46WW/qrc_lkkj.cpp | ${cmake_ninja_workdir}Employee_
 # Custom command for Employee_autogen\EWIEGA46WW\qrc_lak.cpp
 
 build Employee_autogen/EWIEGA46WW/qrc_lak.cpp | ${cmake_ninja_workdir}Employee_autogen/EWIEGA46WW/qrc_lak.cpp: CUSTOM_COMMAND C$:/Users/VIVOBOOK/Documents/Employee/lak.qrc CMakeFiles/Employee_autogen.dir/AutoRcc_lak_EWIEGA46WW_Info.json C$:/Users/VIVOBOOK/Documents/Employee/Vaxhaven__6_-removebg-preview$ (1).png C$:/Qt/6.7.3/mingw_64/bin/rcc.exe C$:/Qt/6.7.3/mingw_64/bin/rcc.exe || Employee_autogen Employee_autogen_timestamp_deps
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_lak_EWIEGA46WW_Info.json Debug"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\VIVOBOOK\Documents\Employee\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/Employee_autogen.dir/AutoRcc_lak_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for lak.qrc
   restat = 1
 

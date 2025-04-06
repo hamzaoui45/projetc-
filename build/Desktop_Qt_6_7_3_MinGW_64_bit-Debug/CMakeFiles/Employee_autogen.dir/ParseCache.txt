@@ -851,7 +851,9 @@ C:/Users/VIVOBOOK/Documents/Employee/mainwindow.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qtransform.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h
@@ -1059,6 +1061,7 @@ C:/Users/VIVOBOOK/Documents/Employee/mainwindow.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/Employee_autogen/moc_predefs.h
+ mdp:C:/Users/VIVOBOOK/Documents/Employee/log.h
  mdp:C:/Users/VIVOBOOK/Documents/Employee/mainwindow.h
 C:/Users/VIVOBOOK/Documents/Employee/employee.cpp
 C:/Users/VIVOBOOK/Documents/Employee/connexion.cpp

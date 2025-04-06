@@ -303,6 +303,9 @@ Employee_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Employee_SOURCE_DIR:STATIC=C:/Users/VIVOBOOK/Documents/Employee
 
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
+
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
 QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=

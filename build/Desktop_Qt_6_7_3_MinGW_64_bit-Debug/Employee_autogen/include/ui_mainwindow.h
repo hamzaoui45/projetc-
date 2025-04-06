@@ -109,6 +109,7 @@ public:
     QLabel *label_27;
     QPushButton *deposerm;
     QComboBox *postem;
+    QPushButton *set;
     QLabel *label_29;
     QLabel *laboula1;
     QWidget *tab_4;
@@ -116,6 +117,8 @@ public:
     QLabel *label_18;
     QGraphicsView *stat;
     QLabel *label_28;
+    QGraphicsView *stat1;
+    QLabel *label_31;
     QMenuBar *menubar;
     QMenu *menuGestion_Employ_s;
     QStatusBar *statusbar;
@@ -1589,6 +1592,41 @@ public:
         postem->setGeometry(QRect(20, 320, 121, 28));
         postem->setStyleSheet(QString::fromUtf8("background-color: #05696b;\n"
 "color: rgb(255, 255, 255);"));
+        set = new QPushButton(groupBox_4);
+        set->setObjectName("set");
+        set->setGeometry(QRect(100, 60, 101, 29));
+        QPalette palette20;
+        palette20.setBrush(QPalette::Active, QPalette::WindowText, brush6);
+        palette20.setBrush(QPalette::Active, QPalette::Button, brush12);
+        palette20.setBrush(QPalette::Active, QPalette::Text, brush6);
+        palette20.setBrush(QPalette::Active, QPalette::ButtonText, brush30);
+        palette20.setBrush(QPalette::Active, QPalette::Base, brush12);
+        palette20.setBrush(QPalette::Active, QPalette::Window, brush12);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette20.setBrush(QPalette::Active, QPalette::PlaceholderText, brush31);
+#endif
+        palette20.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
+        palette20.setBrush(QPalette::Inactive, QPalette::Button, brush12);
+        palette20.setBrush(QPalette::Inactive, QPalette::Text, brush6);
+        palette20.setBrush(QPalette::Inactive, QPalette::ButtonText, brush30);
+        palette20.setBrush(QPalette::Inactive, QPalette::Base, brush12);
+        palette20.setBrush(QPalette::Inactive, QPalette::Window, brush12);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette20.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush31);
+#endif
+        palette20.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
+        palette20.setBrush(QPalette::Disabled, QPalette::Button, brush12);
+        palette20.setBrush(QPalette::Disabled, QPalette::Text, brush6);
+        palette20.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
+        palette20.setBrush(QPalette::Disabled, QPalette::Base, brush12);
+        palette20.setBrush(QPalette::Disabled, QPalette::Window, brush12);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette20.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush31);
+#endif
+        set->setPalette(palette20);
+        set->setFont(font1);
+        set->setStyleSheet(QString::fromUtf8("background-color: #05696b;\n"
+"color: white;"));
         label_29 = new QLabel(tab_2);
         label_29->setObjectName("label_29");
         label_29->setGeometry(QRect(580, -10, 481, 461));
@@ -1604,35 +1642,35 @@ public:
         label_17 = new QLabel(tab_4);
         label_17->setObjectName("label_17");
         label_17->setGeometry(QRect(350, 570, 361, 41));
-        QPalette palette20;
-        palette20.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette20.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette20.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette20.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette20.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette20.setBrush(QPalette::Active, QPalette::Window, brush12);
+        QPalette palette21;
+        palette21.setBrush(QPalette::Active, QPalette::WindowText, brush6);
+        palette21.setBrush(QPalette::Active, QPalette::Button, brush12);
+        palette21.setBrush(QPalette::Active, QPalette::Text, brush6);
+        palette21.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
+        palette21.setBrush(QPalette::Active, QPalette::Base, brush12);
+        palette21.setBrush(QPalette::Active, QPalette::Window, brush12);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette20.setBrush(QPalette::Active, QPalette::PlaceholderText, brush31);
+        palette21.setBrush(QPalette::Active, QPalette::PlaceholderText, brush31);
 #endif
-        palette20.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette20.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette20.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette20.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette20.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette20.setBrush(QPalette::Inactive, QPalette::Window, brush12);
+        palette21.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
+        palette21.setBrush(QPalette::Inactive, QPalette::Button, brush12);
+        palette21.setBrush(QPalette::Inactive, QPalette::Text, brush6);
+        palette21.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
+        palette21.setBrush(QPalette::Inactive, QPalette::Base, brush12);
+        palette21.setBrush(QPalette::Inactive, QPalette::Window, brush12);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette20.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush31);
+        palette21.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush31);
 #endif
-        palette20.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette20.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette20.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette20.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette20.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette20.setBrush(QPalette::Disabled, QPalette::Window, brush12);
+        palette21.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
+        palette21.setBrush(QPalette::Disabled, QPalette::Button, brush12);
+        palette21.setBrush(QPalette::Disabled, QPalette::Text, brush6);
+        palette21.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
+        palette21.setBrush(QPalette::Disabled, QPalette::Base, brush12);
+        palette21.setBrush(QPalette::Disabled, QPalette::Window, brush12);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette20.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush31);
+        palette21.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush31);
 #endif
-        label_17->setPalette(palette20);
+        label_17->setPalette(palette21);
         QFont font3;
         font3.setPointSize(10);
         font3.setBold(true);
@@ -1647,12 +1685,20 @@ public:
         label_18->setScaledContents(true);
         stat = new QGraphicsView(tab_4);
         stat->setObjectName("stat");
-        stat->setGeometry(QRect(260, 190, 381, 251));
+        stat->setGeometry(QRect(30, 190, 411, 271));
         stat->setStyleSheet(QString::fromUtf8("background-color: #FFFFF;"));
         label_28 = new QLabel(tab_4);
         label_28->setObjectName("label_28");
-        label_28->setGeometry(QRect(300, 160, 291, 20));
+        label_28->setGeometry(QRect(80, 160, 291, 20));
         label_28->setFont(font);
+        stat1 = new QGraphicsView(tab_4);
+        stat1->setObjectName("stat1");
+        stat1->setGeometry(QRect(480, 190, 431, 271));
+        stat1->setStyleSheet(QString::fromUtf8("background-color: #FFFFF;"));
+        label_31 = new QLabel(tab_4);
+        label_31->setObjectName("label_31");
+        label_31->setGeometry(QRect(570, 160, 331, 20));
+        label_31->setFont(font);
         tabWidget->addTab(tab_4, QString());
         MainWindow->setCentralWidget(centralwidget);
         widget_4->raise();
@@ -1683,7 +1729,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1755,12 +1801,14 @@ public:
         postem->setItemText(1, QCoreApplication::translate("MainWindow", "RH manager", nullptr));
         postem->setItemText(2, QCoreApplication::translate("MainWindow", "Agent", nullptr));
 
+        set->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         label_29->setText(QString());
         laboula1->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Modifier Employ\303\251", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "   Statistique des Employ\303\251s selon leur poste", nullptr));
         label_18->setText(QString());
         label_28->setText(QCoreApplication::translate("MainWindow", "Statistique des Employ\303\251s selon leur poste", nullptr));
+        label_31->setText(QCoreApplication::translate("MainWindow", "Statistique des Employ\303\251s selon Date_embauche", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QCoreApplication::translate("MainWindow", "Statistique", nullptr));
         menuGestion_Employ_s->setTitle(QCoreApplication::translate("MainWindow", "Gestion Employ\303\251s", nullptr));
     } // retranslateUi

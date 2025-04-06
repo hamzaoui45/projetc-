@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "log.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -33,6 +34,10 @@ void on_deposerm_clicked();
 
 void on_exp_clicked();
 void afficherStatistiques();
+
+void on_set_clicked();
+
+void on_pushButton_16_clicked();
 
 private:
     Ui::MainWindow *ui;
