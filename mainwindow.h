@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
+#include <QCalendarWidget>
+#include <QStandardItemModel>  // or QSqlQueryModel, depending on your use case
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,11 +27,19 @@ public slots:
     void on_pb_trier_clicked();
     void on_pb_modifier_clicked();
     void on_pb_load_clicked();
+    void updateVaccinationChart();
+    void on_liste_attente_clicked();
+    void onRowClicked(const QModelIndex &index);
+
+
+
 private:
     void afficher();
 
 private:
     Ui::MainWindow *ui;
+    QStandardItemModel *model;  // Declare model
+
 };
 
 #endif // MAINWINDOW_H

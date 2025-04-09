@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT += core gui sql charts
 QT += pdf
 
 
@@ -28,13 +28,15 @@ SOURCES += \
     dialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    rdv.cpp
+    rdv.cpp \
+    statistiquewidget.cpp
 
 HEADERS += \
     connection.h \
     dialog.h \
     mainwindow.h \
-    rdv.h
+    rdv.h \
+    statistiquewidget.h
 
 FORMS += \
     dialog.ui \
