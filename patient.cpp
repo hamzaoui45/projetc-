@@ -160,3 +160,8 @@ bool Patient::supprimer(int idPatient) {
 
 
 
+
+
+
+
+

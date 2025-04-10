@@ -37,6 +37,8 @@ public:
     QSqlQueryModel * afficher();
     bool supprimer(int idPatient);
     bool modifier();
+
+
 };
 
 #endif // PATIENT_H

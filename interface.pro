@@ -1,4 +1,5 @@
 QT       += core gui
+QT += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -33,6 +34,4 @@ RESOURCES += \
 
 QT += sql
 QT += printsupport
-
-
 CONFIG += console

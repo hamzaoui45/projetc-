@@ -9,12 +9,22 @@
 #include <QDebug>
 #include <QSqlQueryModel>
 #include <QSqlError>
+#include <QSqlRecord>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QtCharts/QChart>
+
+
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    afficherStatistiques();
+
     connect(ui->bouton_valider_ajout, &QPushButton::clicked, this, &MainWindow::boutonValider_clicked);
     connect(ui->afficher_button_modif, &QPushButton::clicked, this, &MainWindow::afficher_buttonmodif_clicked);
     connect(ui->valider_button_modif, &QPushButton::clicked, this, &MainWindow::valider_buttonmodif_clicked);
@@ -30,16 +40,14 @@ MainWindow::~MainWindow()
 }
 
 
-
-
 void MainWindow::boutonValider_clicked() {
-
-    QString nom = ui->nom_line->text();
-    QString prenom = ui->prenom_line->text();
+    QString nom = ui->nom_line->text().trimmed();
+    QString prenom = ui->prenom_line->text().trimmed();
     QDate dateNaissance = ui->date_line->date();
-    QString adresse = ui->adresse_line->text();
-    QString email = ui->email_line->text();
-    QString telStr = ui->tel_line->text();
+    QString adresse = ui->adresse_line->text().trimmed();
+    QString email = ui->email_line->text().trimmed();
+    QString telStr = ui->tel_line->text().trimmed();
+
     int type = -1;
     if (ui->type_ch1->isChecked()) {
         type = 0;
@@ -47,18 +55,35 @@ void MainWindow::boutonValider_clicked() {
         type = 1;
     }
 
+    static QRegularExpression regex("^[A-Za-zÀ-ÖØ-öø-ÿ ]+$");
     if (nom.isEmpty() || nom.length() < 3) {
-        QMessageBox::warning(this, "Erreur", "Le nom doit contenir au moins 3 caracteres.");
+        QMessageBox::warning(this, "Erreur", "Le nom doit contenir au moins 3 caractères.");
+        return;
+    }
+    if (!regex.match(nom).hasMatch()) {
+        QMessageBox::warning(this, "Erreur", "Le nom ne doit contenir que des lettres et des espaces.");
         return;
     }
 
     if (prenom.isEmpty() || prenom.length() < 3) {
-        QMessageBox::warning(this, "Erreur", "Le prenom doit contenir au moins 3 caracteres.");
+        QMessageBox::warning(this, "Erreur", "Le prénom doit contenir au moins 3 caractères.");
+        return;
+    }
+    if (!regex.match(prenom).hasMatch()) {
+        QMessageBox::warning(this, "Erreur", "Le prénom ne doit contenir que des lettres et des espaces.");
         return;
     }
 
+    if (!dateNaissance.isValid()) {
+        QMessageBox::warning(this, "Erreur", "Veuillez entrer une date de naissance valide.");
+        return;
+    }
+    if (dateNaissance > QDate::currentDate()) {
+        QMessageBox::warning(this, "Erreur", "La date de naissance ne peut pas être dans le futur.");
+        return;
+    }
 
-    if ( adresse.isEmpty() || email.isEmpty() || telStr.isEmpty() || type == -1) {
+    if (adresse.isEmpty() || email.isEmpty() || telStr.isEmpty() || type == -1) {
         QMessageBox::warning(this, "Erreur", "Veuillez remplir tous les champs obligatoires !");
         return;
     }
@@ -72,20 +97,22 @@ void MainWindow::boutonValider_clicked() {
     bool telOk;
     int tel = telStr.toInt(&telOk);
     if (!telOk || tel < 10000000 || tel > 99999999) {
-        QMessageBox::warning(this, "Erreur", "Le numero de telephone doit être de 8 chiffres.");
+        QMessageBox::warning(this, "Erreur", "Le numéro de téléphone doit être composé de 8 chiffres.");
         return;
     }
 
-
     Patient patient(nom, prenom, dateNaissance, adresse, email, tel, type);
     if (patient.ajouter()) {
-        QMessageBox::information(this, "Succes", "Patient ajoute avec succes !");
+        QMessageBox::information(this, "Succès", "Patient ajouté avec succès !");
         afficherPatients();
         reinitialiserChamps();
+        afficherStatistiques();
     } else {
         QMessageBox::critical(this, "Échec", "Erreur lors de l'ajout du patient.");
     }
 }
+
+
 
 
 
@@ -145,6 +172,9 @@ void MainWindow::reinitialiserChamps() {
 
 void MainWindow::afficher_buttonmodif_clicked() {
     QString patientId = ui->id_modif_line->text();
+    idInitial = ui->id_modif_line->text().toInt();
+    ui->id_modif_line->setReadOnly(true);  // Rendre le champ ID en lecture seule
+
 
     if (patientId.isEmpty()) {
         QMessageBox::warning(this, "Erreur", "Veuillez entrer un ID de patient.");
@@ -193,32 +223,54 @@ void MainWindow::valider_buttonmodif_clicked()
         QMessageBox::warning(this, "Erreur", "Veuillez entrer un ID valide.");
         return;
     }
+
+    if (idPatient != idInitial) {
+        QMessageBox::critical(this, "Erreur", "Vous n'avez pas le droit de modifier l'ID du patient.");
+        ui->id_modif_line->setText(QString::number(idInitial)); // Remettre l'ID original
+        return;
+    }
+
+
     Patient patient;
     patient.setIdPatient(idPatient);
-    QString nom = ui->nom_modif_line->text();
+    QString nom = ui->nom_modif_line->text().trimmed();
+    QRegularExpression regex("^[A-Za-zÀ-ÖØ-öø-ÿ ]+$");
+
     if (!nom.isEmpty()) {
         if (nom.length() < 3) {
             QMessageBox::warning(this, "Erreur", "Le nom doit contenir au moins 3 caractères.");
             return;
         }
+        if (!regex.match(nom).hasMatch()) {
+            QMessageBox::warning(this, "Erreur", "Le nom ne doit contenir que des lettres et des espaces.");
+            return;
+        }
         patient.setNom(nom);
     }
-    QString prenom = ui->prenom_modif_line->text();
+
+    QString prenom = ui->prenom_modif_line->text().trimmed();
     if (!prenom.isEmpty()) {
         if (prenom.length() < 3) {
             QMessageBox::warning(this, "Erreur", "Le prénom doit contenir au moins 3 caractères.");
             return;
         }
+        if (!regex.match(prenom).hasMatch()) {
+            QMessageBox::warning(this, "Erreur", "Le prénom ne doit contenir que des lettres et des espaces.");
+            return;
+        }
         patient.setPrenom(prenom);
     }
     QDate dateNaissance = ui->date_modif->date();
-    if (dateNaissance.isValid()) {
-        if (dateNaissance > QDate::currentDate()) {
-            QMessageBox::warning(this, "Erreur", "La date de naissance ne peut pas être dans le futur.");
-            return;
-        }
-        patient.setDateNaissance(dateNaissance);
+    if (!dateNaissance.isValid()) {
+        QMessageBox::warning(this, "Erreur", "Veuillez entrer une date de naissance valide.");
+        return;
     }
+    if (dateNaissance > QDate::currentDate()) {
+        QMessageBox::warning(this, "Erreur", "La date de naissance ne peut pas être dans le futur.");
+        return;
+    }
+    patient.setDateNaissance(dateNaissance);
+
     QString adresse = ui->adresse_modif_line->text();
     if (!adresse.isEmpty()) {
         patient.setAdresse(adresse);
@@ -397,25 +449,28 @@ void MainWindow::on_export_Button_clicked() {
     }
 
     int margin = 100;
-    int yOffset = margin + 50;
-    int lineHeight = 40;
+    int yOffset = margin + 100;
+    int lineHeight = 500;
     int pageHeight = printer.pageRect(QPrinter::Point).height();
     int pageWidth = printer.pageRect(QPrinter::Point).width();
     int xOffset = margin;
 
-
-    QFont titleFont("Arial", 14, QFont::Bold);
+    QFont titleFont("Arial", 20, QFont::Bold);
     painter.setFont(titleFont);
-    painter.drawText(QRect(margin, yOffset, pageWidth - 2 * margin, 50), Qt::AlignCenter, "Liste des Patients");
-    yOffset += 800;
-    QFont contentFont("Arial", 10);
+    painter.drawText(QRect(1000, 500,3500 , 500), Qt::AlignCenter, "Liste des Patients");
+    yOffset += 1000;  // Moins d'espace après le titre
+
+    // Police pour le contenu
+    QFont contentFont("Arial", 12);
     painter.setFont(contentFont);
 
-    int colWidths[] = {50, 100, 100, 200, 150, 100, 80, 120};
+    // Colonnes ajustées pour une meilleure répartition de l'espace
+    int colWidths[] = {500, 900, 1100, 2400, 1100, 1200, 500, 1600};
     int numCols = sizeof(colWidths) / sizeof(colWidths[0]);
 
     QStringList headers = {"ID", "Nom", "Prénom", "Email", "Adresse", "Téléphone", "Type", "Date Naissance"};
 
+    // Affichage des en-têtes avec la nouvelle taille
     xOffset = margin;
     for (int i = 0; i < numCols; i++) {
         painter.drawRect(xOffset, yOffset, colWidths[i], lineHeight);
@@ -423,32 +478,126 @@ void MainWindow::on_export_Button_clicked() {
         xOffset += colWidths[i];
     }
     yOffset += lineHeight;
+
     QSqlQueryModel *model = qobject_cast<QSqlQueryModel*>(ui->table_affichage_patients->model());
     if (!model) {
         QMessageBox::critical(this, "Erreur", "Modèle de données invalide.");
         return;
     }
+
     for (int row = 0; row < model->rowCount(); ++row) {
         xOffset = margin;
         for (int col = 0; col < numCols; col++) {
-            painter.drawRect(xOffset, yOffset, colWidths[col], lineHeight); // Dessiner les bordures des cellules
+            painter.drawRect(xOffset, yOffset, colWidths[col], lineHeight);
             painter.drawText(QRect(xOffset + 5, yOffset, colWidths[col] - 10, lineHeight), Qt::AlignCenter, model->data(model->index(row, col)).toString());
             xOffset += colWidths[col];
         }
         yOffset += lineHeight;
-        if (yOffset > pageHeight - margin - lineHeight) {
-            printer.newPage();
-            yOffset = margin + 50;
-            xOffset = margin;
-            for (int i = 0; i < numCols; i++) {
-                painter.drawRect(xOffset, yOffset, colWidths[i], lineHeight);
-                painter.drawText(QRect(xOffset + 5, yOffset, colWidths[i] - 10, lineHeight), Qt::AlignCenter, headers[i]);
-                xOffset += colWidths[i];
-            }
-            yOffset += lineHeight;
-        }
+
+        // Si la page est remplie, on crée une nouvelle page
+
+
+
+
     }
 
     painter.end();
     QMessageBox::information(this, "Succès", "PDF généré avec succès.");
 }
+
+void MainWindow::afficherStatistiques() {
+    QSqlQuery query;
+
+    // === Statistiques tranche d'âge (type = 0 uniquement) ===
+    int age_0_18 = 0, age_19_35 = 0, age_36_60 = 0, age_60plus = 0;
+    QDate today = QDate::currentDate();
+    query.exec("SELECT DATE_NAISSANCE FROM patients WHERE type = 0");  // Mise à jour du nom de la colonne
+    while (query.next()) {
+        QDate birth = query.value(0).toDate();
+        int age = birth.daysTo(today) / 365;
+        qDebug() << "Date de naissance: " << birth.toString() << " Age: " << age;  // Debug
+        if (age <= 18) age_0_18++;
+        else if (age <= 35) age_19_35++;
+        else if (age <= 60) age_36_60++;
+        else age_60plus++;
+    }
+
+    //qDebug() << "Age 0-18: " << age_0_18;
+    //qDebug() << "Age 19-35: " << age_19_35;
+    //qDebug() << "Age 36-60: " << age_36_60;
+    //qDebug() << "Age 60+: " << age_60plus;
+
+    int totalAge = age_0_18 + age_19_35 + age_36_60 + age_60plus;
+    QPieSeries *seriesAge = new QPieSeries();
+    if (totalAge > 0) {
+        seriesAge->append(QString("0-18 (%1%)").arg(age_0_18 * 100 / totalAge), age_0_18);
+        seriesAge->append(QString("19-35 (%1%)").arg(age_19_35 * 100 / totalAge), age_19_35);
+        seriesAge->append(QString("36-60 (%1%)").arg(age_36_60 * 100 / totalAge), age_36_60);
+        seriesAge->append(QString("60+ (%1%)").arg(age_60plus * 100 / totalAge), age_60plus);
+    }
+
+    // Si le graphique des âges est vide, n'ajoutez pas le graphique
+    if (totalAge > 0) {
+        QChart *chartAge = new QChart();
+        chartAge->addSeries(seriesAge);
+        chartAge->setTitle("Répartition par tranche d'âge (type humain)");
+        chartAge->legend()->setAlignment(Qt::AlignBottom);
+
+        QChartView *chartViewAge = new QChartView(chartAge);
+        chartViewAge->setRenderHint(QPainter::Antialiasing);
+
+        // === Ajout du graphique dans le layout ===
+        QLayout *layout = ui->stati->layout();
+        if (!layout) {
+            layout = new QVBoxLayout(ui->stati);
+            ui->stati->setLayout(layout);
+        }
+
+        // Nettoyer l'ancien contenu
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+
+        // Ajouter le graphique des tranches d'âge
+        layout->addWidget(chartViewAge);
+    } else {
+        qDebug() << "Aucune donnée pour les tranches d'âge.";
+    }
+
+    // === Statistiques selon type === (inchangé)
+    int type0 = 0, type1 = 0;
+    query.exec("SELECT type FROM patients");
+    while (query.next()) {
+        int t = query.value(0).toInt();
+        if (t == 0) type0++;
+        else if (t == 1) type1++;
+    }
+
+    int totalType = type0 + type1;
+    QPieSeries *seriesType = new QPieSeries();
+    if (totalType > 0) {
+        seriesType->append(QString("Humain (%1%)").arg(type0 * 100 / totalType), type0);
+        seriesType->append(QString("Autre (%1%)").arg(type1 * 100 / totalType), type1);
+    }
+
+    QChart *chartType = new QChart();
+    chartType->addSeries(seriesType);
+    chartType->setTitle("Répartition selon le type");
+    chartType->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartViewType = new QChartView(chartType);
+    chartViewType->setRenderHint(QPainter::Antialiasing);
+
+    // Ajouter le graphique du type
+    QLayout *layout2 = ui->stati->layout();
+    layout2->addWidget(chartViewType);
+}
+
+
+
+
+
+
+

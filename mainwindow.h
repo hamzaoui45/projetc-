@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QtCharts>
+//QT_CHARTS_USE_NAMESPACE
+
 //#include "patient.h"
 
 QT_BEGIN_NAMESPACE
@@ -31,10 +34,14 @@ private slots:
 
 
 
+
 private:
     Ui::MainWindow *ui;
     void afficherPatients();
     void reinitialiserChamps();
-    //void trierPatients();
+    void afficherStatistiques();
+private:
+    int idInitial;
+
 };
 #endif // MAINWINDOW_H
