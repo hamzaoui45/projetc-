@@ -3475,7 +3475,7 @@ color: black;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/deconnexion.qrc">:/Downloads/Design_sans_titre__12_-removebg-preview.png</pixmap>
+       <pixmap>:/Downloads/Design_sans_titre__12_-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3496,7 +3496,7 @@ color: black;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/logo.qrc">:/Downloads/Vaxhaven__6_-removebg-preview.png</pixmap>
+     <pixmap>:/Downloads/Vaxhaven__6_-removebg-preview.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -4081,7 +4081,7 @@ color: white;
 color: Black;</string>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <property name="documentMode">
       <bool>false</bool>
@@ -4112,7 +4112,7 @@ color: Black;</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/pdf.qrc">:/Downloads/Design_sans_titre__11_-removebg-preview.png</pixmap>
+        <pixmap>:/Downloads/Design_sans_titre__11_-removebg-preview.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -9811,9 +9811,6 @@ color: white;
  <resources>
   <include location="tyy.qrc"/>
   <include location="frt.qrc"/>
-  <include location="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/logo.qrc"/>
-  <include location="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/pdf.qrc"/>
-  <include location="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/deconnexion.qrc"/>
  </resources>
  <connections/>
 </ui>

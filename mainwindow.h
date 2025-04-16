@@ -39,6 +39,7 @@ void on_set_clicked();
 
 void on_pushButton_16_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     QByteArray imageData;  // Stocke l'image temporairement

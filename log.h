@@ -2,7 +2,13 @@
 #define LOG_H
 
 #include <QDialog>
-
+#include <opencv2/core/mat.hpp>
+#include <QtMultimedia/QAudioFormat>
+#include <QtMultimedia/QAudioSource>
+#include <QtMultimedia/QMediaCaptureSession>
+#include <QTimer>
+#include <QBuffer>
+#include <QProcess>
 namespace Ui {
 class log;
 }
@@ -18,8 +24,16 @@ public:
 private slots:
     void on_connect_clicked();
 
+    void on_recof_clicked();
+    //cv::Mat convertQImageToMat(const QImage &image);
+
+    void on_recov_clicked();
+
 private:
     Ui::log *ui;
+    QMediaCaptureSession *captureSession;
+    QAudioSource *audioSource;
+    QBuffer *audioBuffer;
 };
 
 #endif // LOG_H

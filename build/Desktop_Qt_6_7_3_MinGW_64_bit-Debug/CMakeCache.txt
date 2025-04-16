@@ -304,7 +304,7 @@ Employee_IS_TOP_LEVEL:STATIC=ON
 Employee_SOURCE_DIR:STATIC=C:/Users/VIVOBOOK/Documents/Employee
 
 //The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
+OpenCV_DIR:PATH=C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw/lib
 
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
@@ -563,6 +563,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[C:/Users/VIVOBOOK/Downloads/opencv/build][v4.9.0()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding WrapAtomic

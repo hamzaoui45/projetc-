@@ -1,0 +1,25 @@
+{
+	"BUILD_DIR" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/Employee_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/VIVOBOOK/Documents/Employee",
+	"CMAKE_SOURCE_DIR" : "C:/Users/VIVOBOOK/Documents/Employee",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/Employee_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/VIVOBOOK/Downloads/Design_sans_titre__11_-removebg-preview.png"
+	],
+	"LOCK_FILE" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/CMakeFiles/Employee_autogen.dir/AutoRcc_pdf_PZEMLVOXKL_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "pdf" ],
+	"OUTPUT_CHECKSUM" : "PZEMLVOXKL",
+	"OUTPUT_NAME" : "qrc_pdf.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.7.3/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/CMakeFiles/Employee_autogen.dir/AutoRcc_pdf_PZEMLVOXKL_Used.txt",
+	"SOURCE" : "C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/pdf.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

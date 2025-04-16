@@ -29,10 +29,10 @@ public:
     QLineEdit *user;
     QLineEdit *pswd;
     QPushButton *connect;
-    QPushButton *pushButton_3;
+    QPushButton *recov;
     QLabel *label_4;
     QLabel *label_5;
-    QPushButton *pushButton_4;
+    QPushButton *recof;
     QLabel *label_8;
     QLabel *label_6;
 
@@ -115,10 +115,10 @@ public:
         connect->setGeometry(QRect(200, 470, 121, 41));
         connect->setFont(font2);
         connect->setCheckable(false);
-        pushButton_3 = new QPushButton(frame);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(370, 390, 111, 31));
-        pushButton_3->setFont(font2);
+        recov = new QPushButton(frame);
+        recov->setObjectName("recov");
+        recov->setGeometry(QRect(370, 390, 111, 31));
+        recov->setFont(font2);
         label_4 = new QLabel(frame);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(160, -50, 171, 181));
@@ -128,10 +128,10 @@ public:
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(30, 330, 331, 31));
         label_5->setFont(font2);
-        pushButton_4 = new QPushButton(frame);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(370, 330, 111, 31));
-        pushButton_4->setFont(font2);
+        recof = new QPushButton(frame);
+        recof->setObjectName("recof");
+        recof->setGeometry(QRect(370, 330, 111, 31));
+        recof->setFont(font2);
         label_8 = new QLabel(log);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(0, 0, 161, 161));
@@ -163,10 +163,10 @@ public:
         pswd->setText(QString());
         pswd->setPlaceholderText(QCoreApplication::translate("log", "Password", nullptr));
         connect->setText(QCoreApplication::translate("log", "Se connecter", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("log", "Appuyer ici", nullptr));
+        recov->setText(QCoreApplication::translate("log", "Appuyer ici", nullptr));
         label_4->setText(QString());
         label_5->setText(QCoreApplication::translate("log", "<html><head/><body><p><span style=\" font-size:12pt;\">Utiliser la Reconnaisance Vocale:</span></p></body></html>", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("log", "Appuyer ici", nullptr));
+        recof->setText(QCoreApplication::translate("log", "Appuyer ici", nullptr));
         label_8->setText(QString());
         label_6->setText(QCoreApplication::translate("log", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">Welcome </span></p><p align=\"center\"><span style=\" font-size:24pt;\">To LAKAHNI</span></p></body></html>", nullptr));
     } // retranslateUi

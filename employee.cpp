@@ -126,7 +126,16 @@ bool employee::exportToPDF(const QString& filePath)
     // Titre
     painter.setPen(Qt::red);
     painter.setFont(QFont("Impact", 30));
-    painter.drawText(2200, 1400, "Liste des employés");
+    painter.drawText(4000, 2000, "Liste des employés");
+
+    //logo mtaa lakahni
+    QPixmap logo("C:/Users/VIVOBOOK/Downloads/Vaxhaven__6_-removebg-preview");
+
+    // Dessiner l'image dans le PDF
+    if (!logo.isNull()) {
+        painter.drawPixmap(-100, -500, 2200, 2200, logo); // (x, y, largeur, hauteur)
+    }
+
 
     // En-tête du tableau
     painter.setPen(Qt::black);
@@ -234,7 +243,7 @@ QSqlQueryModel* employee::recherche(int id)
 
 
     query.prepare("SELECT * FROM employés WHERE ID_EMP = :id");
-    query.bindValue(":id", id); // Liaison sécurisée de la valeur
+    query.bindValue(":id", id);
 
     if (query.exec())
     {
@@ -402,7 +411,7 @@ QGraphicsView* employee::statistiquesPoste() {
 
 
 
-
+//stat b date
 
 QGraphicsView* employee::statistiquesembauche() {
     QGraphicsScene *scene = new QGraphicsScene();

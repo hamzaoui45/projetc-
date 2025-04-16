@@ -196,11 +196,11 @@ QLineEdit {
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="recov">
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>390</y>
+      <y>330</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -255,11 +255,11 @@ QLineEdit {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Utiliser la Reconnaisance Vocale:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="recof">
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>330</y>
+      <y>390</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -273,6 +273,19 @@ QLineEdit {
     </property>
     <property name="text">
      <string>Appuyer ici</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="speechOutput">
+    <property name="geometry">
+     <rect>
+      <x>292</x>
+      <y>50</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>
@@ -289,7 +302,7 @@ QLineEdit {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/logo.qrc">:/Downloads/Vaxhaven__6_-removebg-preview.png</pixmap>
+    <pixmap>:/Downloads/Vaxhaven__6_-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -322,7 +335,6 @@ background: #05696b;</string>
  </widget>
  <resources>
   <include location="user.qrc"/>
-  <include location="build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/logo.qrc"/>
  </resources>
  <connections/>
 </ui>

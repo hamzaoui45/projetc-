@@ -11,8 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # Trouver les packages Qt nécessaires
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Multimedia)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Multimedia)
+
 
 
 
@@ -55,7 +56,13 @@ else()
 endif()
 
 # Lier les bibliothèques Qt nécessaires
-target_link_libraries(Employee PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(Employee PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Multimedia)
+
+set(OpenCV_DIR "C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw")
+find_package(OpenCV REQUIRED PATHS "${OpenCV_DIR}/lib" NO_DEFAULT_PATH)
+# Inclure les headers de OpenCV
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 
 # Configuration pour macOS et Windows
 if(${QT_VERSION} VERSION_LESS 6.1.0)
@@ -75,6 +82,8 @@ install(TARGETS Employee
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Employee)

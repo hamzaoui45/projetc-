@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include "log.h"
+#include <opencv2/opencv.hpp>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -246,94 +247,6 @@ void MainWindow::on_modifier_clicked()
 
 
 
-//test
-/*void MainWindow::on_modifier_clicked()
-{
-    // Récupérer l'ID saisi
-    int ID_EMP = ui->idm->text().toInt();
-
-    // Vérifier si l'ID est valide
-    if (ID_EMP == 0) {
-        QMessageBox::warning(this, "Erreur", "Veuillez entrer un ID valide.");
-        return;
-    }
-
-    // Récupérer les données actuelles de l'employé
-    employee e;
-    if (!e.recuperer(ID_EMP)) {
-        QMessageBox::warning(this, "Erreur", "Aucun employé trouvé avec cet ID.");
-        return;
-    }
-
-    // Afficher les informations actuelles dans l'interface utilisateur
-    ui->nomm->setText(e.getNOM());
-    ui->prenomm->setText(e.getPRENOM());
-    ui->postem->setCurrentText(e.getPOSTE());
-    ui->salairem->setValue(e.getSALAIRE());
-    ui->mdpm->setText(e.getMDP());
-    ui->mailm->setText(e.getEMAIL());
-    ui->datem->setDate(e.getDATE_EMB());
-
-    // Afficher l'image si disponible
-    if (!e.getIMAGE().isEmpty()) {
-        QPixmap pixmap;
-        pixmap.loadFromData(e.getIMAGE());
-        ui->laboulam->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
-    }
-
-    // Récupérer les nouvelles valeurs après modification
-    QString NOM = ui->nomm->text();
-    QString PRENOM = ui->prenomm->text();
-    QString POSTE = ui->postem->currentText();
-    float SALAIRE = ui->salairem->value();
-    QString MDP = ui->mdpm->text();
-    QString EMAIL = ui->mailm->text();
-    QDate DATE_EMB = ui->datem->date();
-
-    // Vérification du mot de passe (au moins une majuscule et un caractère spécial)
-    QRegularExpression majuscule("[A-Z]");
-    QRegularExpression special("[^a-zA-Z0-9]");
-
-    if (!MDP.contains(majuscule) || !MDP.contains(special)) {
-        QMessageBox::warning(this, "Mot de passe invalide",
-                             "Le mot de passe doit contenir au moins une lettre majuscule et un caractère spécial.");
-        return;
-    }
-
-    // Vérification de l'email (doit contenir '@')
-    if (!EMAIL.contains("@")) {
-        QMessageBox::warning(this, "Email invalide",
-                             "L'adresse email doit contenir le symbole '@'.");
-        return;
-    }
-
-    // Modifier les informations de l'employé
-    e.setNOM(NOM);
-    e.setPRENOM(PRENOM);
-    e.setPOSTE(POSTE);
-    e.setSALAIRE(SALAIRE);
-    e.setMDP(MDP);
-    e.setEMAIL(EMAIL);
-    e.setDATE_EMB(DATE_EMB);
-    e.setIMAGE(imageData); // Mettre à jour l'image si nécessaire
-
-    bool test = e.modifier();
-    afficherStatistiques();
-
-    if (test) {
-        ui->tableView->setModel(e.afficher());  // Actualiser l'affichage
-        QMessageBox::information(this, "Succès", "L'employé a été modifié avec succès.");
-    } else {
-        QMessageBox::critical(this, "Échec", "La modification a échoué.");
-    }
-}*/
-
-
-
-
-
-
-
 
 
 //tri
@@ -439,19 +352,16 @@ void MainWindow::on_exp_clicked()
 void MainWindow::afficherStatistiques() {
     employee e;
 
-    // Récupérer la vue graphique générée par statistiquesPoste()
+    // Récupérer la vue graphique
     QGraphicsView *statView = e.statistiquesPoste();
     QGraphicsView *statVie = e.statistiquesembauche();
 
-    // Vérifier que l'élément "stat" existe bien dans l'UI
     if (ui->stat) {
-        // Remplacer l'ancienne scène par la nouvelle
         QGraphicsScene *scene = statView->scene();
         ui->stat->setScene(scene);
 
     }
     if (ui->stat1) {
-        // Remplacer l'ancienne scène par la nouvelle
         QGraphicsScene *scene = statVie->scene();
         ui->stat1->setScene(scene);
     }
@@ -488,4 +398,3 @@ void MainWindow::on_pushButton_16_clicked()
     class log l;
     l.exec();
 }
-

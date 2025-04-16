@@ -240,6 +240,7 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/E
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cfloat \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
@@ -312,10 +313,15 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/E
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/float.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -351,4 +357,23 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/E
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/VIVOBOOK/Documents/Employee/log.h
+  C:/Users/VIVOBOOK/Documents/Employee/log.h \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/base.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/bufferpool.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/check.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/cv_cpu_dispatch.h \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/cvdef.h \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/cvstd.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/cvstd_wrapper.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/fast_math.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/hal/interface.h \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/mat.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/mat.inl.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/matx.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/neon_utils.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/saturate.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/traits.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/types.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/version.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/vsx_utils.hpp \
+  C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/opencv_modules.hpp
