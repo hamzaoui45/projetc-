@@ -32,3 +32,7 @@ RESOURCES += \
     images.qrc
     QT+= sql
     QT += charts
+    QT += core gui sql charts network
+    greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+    QT += core gui sql charts network multimedia
+    greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

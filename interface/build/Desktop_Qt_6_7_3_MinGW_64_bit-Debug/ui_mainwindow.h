@@ -94,6 +94,13 @@ public:
     QLabel *label_27;
     QPushButton *recherche_modif;
     QLabel *label_12;
+    QWidget *tab_ia;
+    QLabel *label_17;
+    QLabel *label_11;
+    QPushButton *pushButton;
+    QLabel *imageLabel;
+    QPushButton *playAudioButton;
+    QLabel *equipmentLabel;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -229,7 +236,7 @@ public:
         label_20->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
         export_pdf = new QPushButton(tab);
         export_pdf->setObjectName("export_pdf");
-        export_pdf->setGeometry(QRect(430, 470, 131, 29));
+        export_pdf->setGeometry(QRect(420, 470, 131, 29));
         export_pdf->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
 "    color: black; /* Couleur du texte par d\303\251faut */\n"
@@ -243,7 +250,7 @@ public:
 "}"));
         pushButton_11 = new QPushButton(tab);
         pushButton_11->setObjectName("pushButton_11");
-        pushButton_11->setGeometry(QRect(210, 470, 131, 29));
+        pushButton_11->setGeometry(QRect(160, 470, 131, 29));
         pushButton_11->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
 "    color: black; /* Couleur du texte par d\303\251faut */\n"
@@ -596,6 +603,66 @@ public:
         label_12->setGeometry(QRect(300, 30, 291, 41));
         label_12->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
         tabWidget->addTab(tab_5, QString());
+        tab_ia = new QWidget();
+        tab_ia->setObjectName("tab_ia");
+        label_17 = new QLabel(tab_ia);
+        label_17->setObjectName("label_17");
+        label_17->setGeometry(QRect(280, 20, 291, 41));
+        label_17->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_11 = new QLabel(tab_ia);
+        label_11->setObjectName("label_11");
+        label_11->setGeometry(QRect(20, 40, 901, 431));
+        label_11->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);"));
+        pushButton = new QPushButton(tab_ia);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(490, 190, 151, 51));
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}\n"
+""));
+        imageLabel = new QLabel(tab_ia);
+        imageLabel->setObjectName("imageLabel");
+        imageLabel->setGeometry(QRect(70, 90, 311, 281));
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(imageLabel->sizePolicy().hasHeightForWidth());
+        imageLabel->setSizePolicy(sizePolicy1);
+        imageLabel->setScaledContents(true);
+        playAudioButton = new QPushButton(tab_ia);
+        playAudioButton->setObjectName("playAudioButton");
+        playAudioButton->setGeometry(QRect(700, 190, 151, 51));
+        playAudioButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: lightblue; /* Couleur de fond par d\303\251faut */\n"
+"    color: black; /* Couleur du texte par d\303\251faut */\n"
+"    border: 1px solid gray; /* Bordure par d\303\251faut */\n"
+"    padding: 5px; /* Marge interne par d\303\251faut */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */\n"
+"    color: white; /* Couleur du texte lorsque la souris est dessus */\n"
+"}\n"
+""));
+        equipmentLabel = new QLabel(tab_ia);
+        equipmentLabel->setObjectName("equipmentLabel");
+        equipmentLabel->setGeometry(QRect(120, 390, 191, 41));
+        equipmentLabel->setStyleSheet(QString::fromUtf8("color: black;"));
+        tabWidget->addTab(tab_ia, QString());
+        label_11->raise();
+        label_17->raise();
+        pushButton->raise();
+        imageLabel->raise();
+        playAudioButton->raise();
+        equipmentLabel->raise();
         MainWindow->setCentralWidget(centralwidget);
         label->raise();
         label_2->raise();
@@ -689,6 +756,13 @@ public:
         recherche_modif->setText(QCoreApplication::translate("MainWindow", "Recherche", nullptr));
         label_12->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">MODIFIER RESSOURCE</span></p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QCoreApplication::translate("MainWindow", "Modifier ressource", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">RECONNAISSANCE OBJETS </span></p></body></html>", nullptr));
+        label_11->setText(QString());
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Donner image", nullptr));
+        imageLabel->setText(QString());
+        playAudioButton->setText(QCoreApplication::translate("MainWindow", "Audio", nullptr));
+        equipmentLabel->setText(QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_ia), QCoreApplication::translate("MainWindow", "Reconnaissance des  objets", nullptr));
     } // retranslateUi
 
 };

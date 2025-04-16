@@ -238,7 +238,7 @@ QTabBar::tab:hover {
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -391,7 +391,7 @@ QPushButton:hover {
      <widget class="QPushButton" name="export_pdf">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>420</x>
         <y>470</y>
         <width>131</width>
         <height>29</height>
@@ -417,7 +417,7 @@ QPushButton:hover {
      <widget class="QPushButton" name="pushButton_11">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>160</x>
         <y>470</y>
         <width>131</width>
         <height>29</height>
@@ -1225,7 +1225,7 @@ QPushButton:hover {
      <widget class="QPushButton" name="recherche_modif">
       <property name="geometry">
        <rect>
-        <x>780</x>
+        <x>790</x>
         <y>190</y>
         <width>91</width>
         <height>31</height>
@@ -1264,6 +1264,141 @@ QPushButton:hover {
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;MODIFIER RESSOURCE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_ia">
+     <attribute name="title">
+      <string>Reconnaissance des  objets</string>
+     </attribute>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>30</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;RECONNAISSANCE OBJETS &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>901</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(213, 241, 240);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>230</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: lightblue; /* Couleur de fond par défaut */
+    color: black; /* Couleur du texte par défaut */
+    border: 1px solid gray; /* Bordure par défaut */
+    padding: 5px; /* Marge interne par défaut */
+}
+
+QPushButton:hover {
+    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */
+    color: white; /* Couleur du texte lorsque la souris est dessus */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Donner image</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="imageLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>90</y>
+        <width>311</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="playAudioButton">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>230</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: lightblue; /* Couleur de fond par défaut */
+    color: black; /* Couleur du texte par défaut */
+    border: 1px solid gray; /* Bordure par défaut */
+    padding: 5px; /* Marge interne par défaut */
+}
+
+QPushButton:hover {
+    background-color: rgb(5, 105, 107); /* Couleur de fond lorsque la souris est dessus */
+    color: white; /* Couleur du texte lorsque la souris est dessus */
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Audio</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="equipmentLabel">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>400</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: black;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>label_11</zorder>
+     <zorder>label_17</zorder>
+     <zorder>pushButton</zorder>
+     <zorder>imageLabel</zorder>
+     <zorder>playAudioButton</zorder>
+     <zorder>equipmentLabel</zorder>
     </widget>
    </widget>
    <zorder>label</zorder>

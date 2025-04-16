@@ -187,32 +187,51 @@ void Ressources::export_pdf() const
     QPainter painter(&pdfWriter);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-    int startX = 0, startY = 200;  // Position départ du tableau
+    int pageWidth = pdfWriter.logicalDpiX() * 210 / 25.4; // Largeur A4 en pixels
+    int pageHeight = pdfWriter.logicalDpiY() * 297 / 25.4; // Hauteur A4 en pixels
+    int startX = 0, startY = 400;  // Position départ ajustée après logo
     int colWidth[] = {1000, 1750, 1750, 1750, 1750}; // Largeur des colonnes
-    int rowHeight = 900; // Hauteur des lignes ajustée
+    int rowHeight = 900; // Hauteur des lignes
 
-    // Titre du document
-    painter.setFont(QFont("Arial", 16, QFont::Bold));
-    painter.drawText(200, startY, "Liste des Ressources");
-    startY += 400; // Espacement après le titre
+    // Charger et dessiner le logo
+    QImage logo("C:/Users/a7mda/Documents/interface/logo.png");
+    if (!logo.isNull()) {
+        QImage scaledLogo = logo.scaledToWidth(1500, Qt::SmoothTransformation); // Agrandir le logo
+        painter.drawImage(0, 0, scaledLogo);
+        startY += scaledLogo.height(); // Ajuster startY après le logo
+    }
+
+    // Titre du document centré
+    QFont titleFont("Arial", 16, QFont::Bold);
+    painter.setFont(titleFont);
+    painter.setPen(QColor(0, 102, 204)); // Couleur bleu
+    QString title = "Liste des Ressources";
+    int titleWidth = QFontMetrics(titleFont).horizontalAdvance(title);
+    painter.drawText((pageWidth - (titleWidth + 4000)) / 2, startY, title); // Correction de la centration
+    startY += 600;
 
     // En-têtes du tableau
-    painter.setFont(QFont("Arial", 12, QFont::Bold));
-
+    painter.setFont(QFont("Helvetica", 12, QFont::Bold));
     QStringList headers = {"Réf", "Nom", "Quantité", "Prix", "État"};
     int x = startX;
 
-    // Dessiner les en-têtes des colonnes avec bordures
+    QColor headerBackgroundColor(220, 220, 250); // Fond des en-têtes
+    QColor headerTextColor(0, 51, 153); // Couleur texte en-têtes (bleu foncé)
+    QColor borderColor(160, 160, 160);
+
     for (int i = 0; i < headers.size(); ++i)
     {
-        painter.drawRect(x, startY, colWidth[i], rowHeight); // Bordure
-        painter.drawText(x + 400, startY + 800, headers[i]);   // Texte avec ajustement de position
+        QRect cellRect(x, startY, colWidth[i], rowHeight);
+        painter.fillRect(cellRect, headerBackgroundColor); // Fond coloré
+        painter.setPen(borderColor);
+        painter.drawRect(cellRect); // Bordure
+        painter.setPen(headerTextColor); // Texte coloré
+        painter.drawText(x + 400, startY + 800, headers[i]);
         x += colWidth[i];
     }
 
-    startY += rowHeight; // Passer à la première ligne des données
-
-    painter.setFont(QFont("Arial", 10)); // Police normale pour les données
+    startY += rowHeight;
+    painter.setFont(QFont("Helvetica", 10)); // Style pour les données
 
     QSqlQuery query("SELECT * FROM RESSOURCES");
     while (query.next())
@@ -220,20 +239,26 @@ void Ressources::export_pdf() const
         x = startX;
         for (int i = 0; i < headers.size(); ++i)
         {
-            painter.drawRect(x, startY, colWidth[i], rowHeight); // Dessiner la cellule
-            painter.drawText(x + 100, startY + 400, query.value(i).toString()); // Insérer la valeur avec ajustement de position
+            QRect cellRect(x, startY, colWidth[i], rowHeight);
+            painter.setPen(borderColor);
+            painter.drawRect(cellRect);
+            painter.setPen(Qt::black);
+            painter.drawText(x + 100, startY + 400, query.value(i).toString());
             x += colWidth[i];
         }
-        startY += rowHeight; // Passer à la ligne suivante
+        startY += rowHeight;
     }
+
+    // Signature en bas de page
+    QFont signatureFont("Arial", 12, QFont::Normal);
+    painter.setFont(signatureFont);
+    painter.setPen(Qt::black);
+    painter.drawText(200, pageHeight - 150, "Signé : Lakahni"); // Ajuster position pour garantir l'affichage
 
     painter.end();
     QMessageBox::information(nullptr, "Exportation réussie", "Le fichier PDF a été généré avec succès.");
 }
 //statistiques
-
-
-// Méthode pour obtenir un QPieSeries des statistiques des ressources
 QPieSeries* Ressources::getStatistiques()
 {
     // Requête pour compter les ressources disponibles
