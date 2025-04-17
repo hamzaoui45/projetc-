@@ -20,6 +20,8 @@
 #include <QLayoutItem>
 #include <QSqlError>
 #include <QTimer>
+#include <QSet>
+#include <QMap>
 
 
 
@@ -29,10 +31,23 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    updateCalendarColors();
+    tunisianHolidays = {
+        QDate(QDate::currentDate().year(), 1, 1),   // New Year
+        QDate(QDate::currentDate().year(), 3, 20),  // Independence Day
+        QDate(QDate::currentDate().year(), 4, 9),   // Martyrs' Day
+        QDate(QDate::currentDate().year(), 7, 25),  // Republic Day
+        QDate(QDate::currentDate().year(), 10, 15), // Evacuation Day
+        // Add more if you want
+    };
+
+    updateCalendarColors(); // Call it to color the calendar on startup
+
+
     Rdv rdv;
     ui->tableView_3->setModel(rdv.afficher());
 
-    connect(ui->ajouter, &QPushButton::clicked, this, &MainWindow::on_pb_ajouter_clicked);
+    connect(ui->pb_ajouter, &QPushButton::clicked, this, &MainWindow::on_pb_ajouter_clicked);
     connect(ui->pb_supprimer, &QPushButton::clicked, this, &MainWindow::on_pb_supprimer_clicked);
     connect(ui->pb_generate_pdf, &QPushButton::clicked, this, &MainWindow::on_pb_generate_pdf_clicked);
     connect(ui->pb_recherche, &QPushButton::clicked, this, &MainWindow::on_pb_recherche_clicked);
@@ -52,7 +67,7 @@ void MainWindow::onRowClicked(const QModelIndex &index)
 {
     if (!index.isValid()) return;
 
-    int statutColumn = 6; // Column for STATUT
+    int statutColumn = 6;
     int clickedRow = index.row();
 
     QStandardItemModel* model = qobject_cast<QStandardItemModel*>(ui->tableView->model());
@@ -72,7 +87,6 @@ void MainWindow::onRowClicked(const QModelIndex &index)
         newStatut = "Attente";
     }
 
-    // Show confirmation dialog if changing to "Annulé"
     if (newStatut == "Annulé") {
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(this, "Confirmer Suppression",
@@ -80,35 +94,41 @@ void MainWindow::onRowClicked(const QModelIndex &index)
                                       QMessageBox::Yes | QMessageBox::No);
 
         if (reply == QMessageBox::Yes) {
+            QSqlQuery deleteQuery;
+            deleteQuery.prepare("DELETE FROM RDV WHERE ID_RDV = :id");
+            deleteQuery.bindValue(":id", model->item(clickedRow, 0)->text());
+            if (!deleteQuery.exec()) {
+                qDebug() << "Failed to delete from database: " << deleteQuery.lastError().text();
+                return;  // Exit if database deletion fails
+            }
+
             // Update the statut in the model
             statutItem->setText(newStatut);
 
             // Set up a timer to delete the row after 3 seconds
-            QTimer::singleShot(3000, this, [this, model, clickedRow, statutItem]() {
-                // Proceed with deletion after 3 seconds
-                // Remove row from the model
-                model->removeRow(clickedRow);
+            QTimer::singleShot(3000, this, [this, model, clickedRow]() {
+                // Check if the row is still valid before attempting deletion
+                if (clickedRow >= 0 && clickedRow < model->rowCount()) {
+                    // Proceed with deletion after 3 seconds
+                    model->removeRow(clickedRow);
+                    qDebug() << "Row removed from model.";
 
-                // Also delete from the database
-                QSqlQuery deleteQuery;
-                deleteQuery.prepare("DELETE FROM RDV WHERE ID_RDV = :id");
-                deleteQuery.bindValue(":id", model->item(clickedRow, 0)->text()); // Assuming ID_RDV is the first column
-                if (!deleteQuery.exec()) {
-                    qDebug() << "Failed to delete from database: " << deleteQuery.lastError().text();
+                    // Optionally, show a message to confirm the deletion
+                    QMessageBox::information(this, "Suppression", "La réservation a été annulée et supprimée.");
+                } else {
+                    qDebug() << "Invalid row after timer, skipping removal.";
                 }
-
-                // Optionally, show a message to confirm the deletion
-                QMessageBox::information(this, "Suppression", "La réservation a été annulée et supprimée.");
             });
         } else {
-            // If the user presses No, revert the status back to its original value
-            statutItem->setText(currentStatut);
+            // If the user presses No, revert the status back to "Confirmé"
+            statutItem->setText("Confirmé");
         }
     } else {
         // Update the statut without confirmation for "Attente" and "Confirmé"
         statutItem->setText(newStatut);
     }
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -125,18 +145,14 @@ void MainWindow::on_pb_ajouter_clicked()
     QString nom_vac = ui->lineEdit_nom_vac->text();
     QString nom = ui->lineEdit_nom->text();
     QString prenom = ui->lineEdit_prenom->text();
-    QDate date = ui->calendarWidget->selectedDate(); // Fixed: use QDate
-
-    /*if (heure.isEmpty() || nom_vac.isEmpty() || nom.isEmpty() || prenom.isEmpty()) {
-        QMessageBox::warning(this, "Erreur", "Veuillez remplir tous les champs.");
-        return;
-    }*/
+    QDate date = ui->calendarWidget->selectedDate();
 
     Rdv rdv(heure, nom_vac, nom, prenom, date);
 
     if (rdv.ajouter()) {
         QMessageBox::information(this, "Succès", "Rendez-vous ajouté !");
         ui->tableView_3->setModel(rdv.afficher());
+        updateCalendarColors();
     } else {
         QMessageBox::critical(this, "Erreur", "Échec de l'ajout !");
     }
@@ -162,7 +178,6 @@ void MainWindow::on_pb_supprimer_clicked()
         }
     }
 }
-
 void MainWindow::on_pb_generate_pdf_clicked()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Enregistrer PDF"), "", tr("PDF Files (*.pdf)"));
@@ -171,7 +186,7 @@ void MainWindow::on_pb_generate_pdf_clicked()
     QPdfWriter writer(fileName);
     writer.setPageSize(QPageSize::A4);
     writer.setResolution(300);
-    writer.setPageMargins(QMarginsF(10, 10, 10, 10));
+    writer.setPageMargins(QMarginsF(0, 0, 0, 0)); // Plein écran sans marge par défaut
 
     QPainter painter;
     if (!painter.begin(&writer)) return;
@@ -182,43 +197,80 @@ void MainWindow::on_pb_generate_pdf_clicked()
         return;
     }
 
-    int yOffset = 100;
-    int margin = 50;
-    int rowHeight = 40;
-    int columnCount = model->columnCount();
-    int pageWidth = writer.width() - 2 * margin;
-    QVector<int> columnWidths(columnCount, pageWidth / columnCount);
 
-    painter.setFont(QFont("Arial", 16, QFont::Bold));
-    painter.drawText(margin, yOffset - 50, "Liste des Rendez-vous");
+    QColor backgroundColor("#A4D4D4");
+    QColor headerColor("#126C6C");
+    QColor rowColor1("#D3F5F5");
+    QColor rowColor2("#C0EBEB");
+    QColor textColor(Qt::black);
+    QColor titleColor("#0B4C4C");
 
-    painter.setFont(QFont("Arial", 10, QFont::Bold));
-    for (int col = 0; col < columnCount; ++col) {
-        QRect rect(margin + col * columnWidths[col], yOffset, columnWidths[col], rowHeight);
-        painter.drawRect(rect);
-        painter.drawText(rect, Qt::AlignCenter, model->headerData(col, Qt::Horizontal).toString());
+    QRect fullPage = writer.pageLayout().paintRectPixels(writer.resolution());
+    painter.fillRect(fullPage, backgroundColor);
+
+    int margin = 40;
+    int yOffset = 40;
+    int rowHeight = 45;
+
+    QFont titleFont("Helvetica", 20, QFont::Bold);
+    painter.setFont(titleFont);
+    painter.setPen(titleColor);
+    painter.drawText(QRect(0, yOffset, writer.width(), 50), Qt::AlignCenter, "Liste des Rendez-vous");
+
+    yOffset += 60;
+
+    // Colonnes
+    int colCount = model->columnCount();
+    int tableWidth = writer.width() - 2 * margin;
+    QVector<int> colWidths(colCount, tableWidth / colCount);
+
+    // En-têtes
+    painter.setFont(QFont("Helvetica", 11, QFont::Bold));
+    for (int col = 0; col < colCount; ++col) {
+        QRect rect(margin + col * colWidths[col], yOffset, colWidths[col], rowHeight);
+        painter.fillRect(rect, headerColor);
+        painter.setPen(Qt::white);
+        painter.drawText(rect.adjusted(6, 0, -6, 0), Qt::AlignVCenter | Qt::AlignLeft,
+                         model->headerData(col, Qt::Horizontal).toString());
     }
 
-    painter.setFont(QFont("Arial", 10));
     yOffset += rowHeight;
+
+    // Données
+    painter.setFont(QFont("Helvetica", 10));
     for (int row = 0; row < model->rowCount(); ++row) {
-        for (int col = 0; col < columnCount; ++col) {
-            QRect rect(margin + col * columnWidths[col], yOffset, columnWidths[col], rowHeight);
-            painter.drawRect(rect);
-            painter.drawText(rect, Qt::AlignCenter, model->data(model->index(row, col)).toString());
+        QColor rowBg = (row % 2 == 0) ? rowColor1 : rowColor2;
+
+        for (int col = 0; col < colCount; ++col) {
+            QRect rect(margin + col * colWidths[col], yOffset, colWidths[col], rowHeight);
+            painter.fillRect(rect, rowBg);
+            painter.setPen(textColor);
+
+            QString cellText = model->data(model->index(row, col)).toString();
+
+            // Si colonne de date
+            if (model->headerData(col, Qt::Horizontal).toString().contains("DATE")) {
+                QDateTime dt = QDateTime::fromString(cellText, Qt::ISODate);
+                if (dt.isValid()) {
+                    cellText = dt.toString("dd/MM/yyyy");
+                }
+            }
+
+            painter.drawText(rect.adjusted(6, 0, -6, 0), Qt::AlignVCenter | Qt::AlignLeft, cellText);
         }
-        yOffset += rowHeight;
-        if (yOffset + rowHeight > writer.height() - 100) {
+
+        yOffset += rowHeight + 2;
+
+
+        if (yOffset + rowHeight > fullPage.height() - 60) {
             writer.newPage();
-            yOffset = 100;
+            painter.fillRect(fullPage, backgroundColor);
+            yOffset = 40;
         }
     }
 
-    painter.setFont(QFont("Arial", 8));
-    painter.drawText(margin, writer.height() - 50, "Généré le : " + QDateTime::currentDateTime().toString("dd/MM/yyyy HH:mm:ss"));
     painter.end();
-
-    QMessageBox::information(this, "Succès", "PDF exporté !");
+    QMessageBox::information(this, "Succès", "PDF généré avec succès !");
 }
 
 void MainWindow::on_pb_recherche_clicked()
@@ -258,7 +310,6 @@ void MainWindow::on_pb_trier_clicked()
     Rdv rdv;
     ui->tableView_3->setModel(rdv.trier(column, order));
 }
-
 void MainWindow::on_pb_modifier_clicked()
 {
     int id_rdv = ui->lineEdit_id->text().toInt();
@@ -266,17 +317,22 @@ void MainWindow::on_pb_modifier_clicked()
     QString nom_vac = ui->lineEdit_nom_vac_2->text();
     QString nom = ui->lineEdit_nom_2->text();
     QString prenom = ui->lineEdit_prenom_2->text();
-    QDate date = ui->calendarWidget->selectedDate(); // Fixed
+    QDate date = ui->calendarWidget->selectedDate();
 
     Rdv rdv(heure, nom_vac, nom, prenom, date);
 
     if (rdv.modifier(id_rdv)) {
         QMessageBox::information(this, "Succès", "Rendez-vous modifié !");
         ui->tableView_3->setModel(rdv.afficher());
+
+        updateCalendarColors();
+        ui->calendarWidget->showSelectedDate(); // Ensure visible month is correct
+
     } else {
         QMessageBox::critical(this, "Erreur", "Échec de la modification.");
     }
 }
+
 
 void MainWindow::on_pb_load_clicked()
 {
@@ -347,4 +403,65 @@ void MainWindow::updateVaccinationChart()
     }
 
     layout->addWidget(chartView);
+}
+void MainWindow::updateCalendarColors() {
+    QTextCharFormat defaultFormat;
+    ui->calendarWidget->setDateTextFormat(QDate(), defaultFormat); // Clear all formatting
+
+    rdvCountPerDate.clear();
+    QSqlQuery query("SELECT DATE_RDV, COUNT(*) FROM RDV GROUP BY DATE_RDV");
+    while (query.next()) {
+        QDate date = query.value(0).toDate();
+        int count = query.value(1).toInt();
+        rdvCountPerDate[date] = count;
+    }
+
+    QDate today = QDate::currentDate();
+    QDate first = ui->calendarWidget->minimumDate();
+    QDate last = ui->calendarWidget->maximumDate();
+
+    for (QDate date = first; date <= last; date = date.addDays(1)) {
+        QTextCharFormat format;
+
+        if (tunisianHolidays.contains(date)) {
+            format.setBackground(QColor("#800080"));  // Purple for holidays
+            format.setForeground(Qt::white);
+        }
+        else if (date.dayOfWeek() == 7) {  // Sunday
+            format.setBackground(QColor("#D3D3D3"));
+            format.setForeground(Qt::black);
+        }
+        else if (date < today) {
+            format.setBackground(QColor("#FFCCCC"));
+            format.setForeground(Qt::black);
+        }
+        else if (rdvCountPerDate.contains(date)) {
+            int count = rdvCountPerDate[date];
+            if (count >= 15) {
+                format.setBackground(QColor("#FF6961"));  // Soft red
+            }
+            else if (count >= 10) {
+                format.setBackground(QColor("#FFFACD"));  // Soft yellow
+            }
+            else {
+                format.setBackground(QColor("#FFA500"));  // Orange (optional)
+            }
+        }
+        else {
+            format.setBackground(QColor("#90EE90"));  // Light green for available
+        }
+
+        ui->calendarWidget->setDateTextFormat(date, format);
+    }
+}
+
+void MainWindow::on_calendarWidget_clicked(const QDate &date)
+{
+    if (date.dayOfWeek() == Qt::Sunday || tunisianHolidays.contains(date)) {
+        QMessageBox::warning(this, "Jour non ouvrable", "Vous ne pouvez pas prendre un rendez-vous ce jour.");
+        return;
+    }
+
+    selectedDate = date;
+    // Put the rest of your logic here for selecting a date, if any
 }

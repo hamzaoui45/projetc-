@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QCalendarWidget>
 #include <QStandardItemModel>  // or QSqlQueryModel, depending on your use case
+#include <QSet>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -38,7 +40,12 @@ private:
 
 private:
     Ui::MainWindow *ui;
-    QStandardItemModel *model;  // Declare model
+    QStandardItemModel *model;
+    void updateCalendarColors();
+    QMap<QDate, int> rdvCountPerDate;
+    QSet<QDate> tunisianHolidays;
+    QDate selectedDate;
+    void on_calendarWidget_clicked(const QDate &date);
 
 };
 

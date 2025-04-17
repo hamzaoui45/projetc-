@@ -348,7 +348,7 @@ color: rgb(9, 9, 9);</string>
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="ajouter">
+     <widget class="QPushButton" name="pb_ajouter">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -439,8 +439,8 @@ color: rgb(12, 12, 12);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 241, 240);
-color: rgb(12, 12, 12);</string>
+       <string notr="true">background-color: rgb(213, 241, 240);color: rgb(12, 12, 12);
+alternate-background-color: rgb(5, 105, 107);;</string>
       </property>
      </widget>
     </widget>
@@ -1001,6 +1001,16 @@ color: rgb(9, 9, 9);</string>
       <item>
        <property name="text">
         <string>ID_RDV</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>prenom</string>
        </property>
       </item>
      </widget>

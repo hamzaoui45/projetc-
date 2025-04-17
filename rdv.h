@@ -16,7 +16,7 @@ public:
     Rdv() = default;
     Rdv(QString heure, QString nom_vac, QString nom, QString prenom, QDate date_rdv);
 
-    // Core methods
+
     bool verif();
     bool ajouter();
     static QSqlQueryModel *afficher();

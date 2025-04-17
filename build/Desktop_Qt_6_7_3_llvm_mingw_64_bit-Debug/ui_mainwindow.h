@@ -51,7 +51,7 @@ public:
     QLineEdit *lineEdit_nom_vac;
     QLabel *label_9;
     QLabel *label_24;
-    QPushButton *ajouter;
+    QPushButton *pb_ajouter;
     QPushButton *pushButton_24;
     QTimeEdit *timeEdit;
     QLabel *prenom;
@@ -205,10 +205,10 @@ public:
         label_24->setGeometry(QRect(70, 280, 121, 31));
         label_24->setFont(font);
         label_24->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
-        ajouter = new QPushButton(ajouter_2);
-        ajouter->setObjectName("ajouter");
-        ajouter->setGeometry(QRect(80, 360, 121, 41));
-        ajouter->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pb_ajouter = new QPushButton(ajouter_2);
+        pb_ajouter->setObjectName("pb_ajouter");
+        pb_ajouter->setGeometry(QRect(80, 360, 121, 41));
+        pb_ajouter->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
         pushButton_24 = new QPushButton(ajouter_2);
         pushButton_24->setObjectName("pushButton_24");
         pushButton_24->setGeometry(QRect(390, 370, 121, 41));
@@ -231,8 +231,8 @@ public:
         calendarWidget = new QCalendarWidget(ajouter_2);
         calendarWidget->setObjectName("calendarWidget");
         calendarWidget->setGeometry(QRect(545, 114, 381, 331));
-        calendarWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);\n"
-"color: rgb(12, 12, 12);"));
+        calendarWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(213, 241, 240);color: rgb(12, 12, 12);\n"
+"alternate-background-color: rgb(5, 105, 107);;"));
         tabWidget->addTab(ajouter_2, QString());
         Modifier = new QWidget();
         Modifier->setObjectName("Modifier");
@@ -389,6 +389,8 @@ public:
 "color: rgb(4, 4, 4);"));
         comboBoxtri = new QComboBox(afficher);
         comboBoxtri->addItem(QString());
+        comboBoxtri->addItem(QString());
+        comboBoxtri->addItem(QString());
         comboBoxtri->setObjectName("comboBoxtri");
         comboBoxtri->setGeometry(QRect(340, 60, 101, 28));
         comboBoxtri->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
@@ -482,7 +484,7 @@ public:
         vaccin->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700; font-style:italic;\">nom de vaccin</span></p><p align=\"center\"><br/></p></body></html>", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Rendez-vous</span></p></body></html>", nullptr));
         label_24->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\">Time</p></body></html>", nullptr));
-        ajouter->setText(QCoreApplication::translate("MainWindow", "Valider", nullptr));
+        pb_ajouter->setText(QCoreApplication::translate("MainWindow", "Valider", nullptr));
         pushButton_24->setText(QCoreApplication::translate("MainWindow", "Retour", nullptr));
         prenom->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">prenom du Patient</span></p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(ajouter_2), QCoreApplication::translate("MainWindow", "Ajouter un rendez-vous", nullptr));
@@ -514,6 +516,8 @@ public:
 
         pb_recherche->setText(QCoreApplication::translate("MainWindow", "Rechercher", nullptr));
         comboBoxtri->setItemText(0, QCoreApplication::translate("MainWindow", "ID_RDV", nullptr));
+        comboBoxtri->setItemText(1, QCoreApplication::translate("MainWindow", "nom", nullptr));
+        comboBoxtri->setItemText(2, QCoreApplication::translate("MainWindow", "prenom", nullptr));
 
         comboBoxtri_2->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
         comboBoxtri_2->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));

@@ -8,7 +8,6 @@
 #include <QStandardItemModel>
 #include <QSqlRecord>
 
-// Constructor with all fields
 Rdv::Rdv(QString heure, QString nom_vac, QString nom, QString prenom, QDate date_rdv)
 {
     this->heure = heure;
@@ -33,7 +32,7 @@ void Rdv::setPrenom(const QString &prenom) { this->prenom = prenom; }
 void Rdv::setDateRdv(const QDate &date) { this->date_rdv = date; }
 bool Rdv::verif()
 {
-    QString errorMessages; // Variable to collect all error messages
+    QString errorMessages;
 
     // ---- Empty field checks ----
     if (heure.trimmed().isEmpty()) {
@@ -77,7 +76,7 @@ bool Rdv::verif()
         errorMessages += "La date du rendez-vous ne peut pas être dans le passé.\n";
     }
 
-    // ---- Check vaccine exists ----
+
     QSqlQuery query;
     query.prepare("SELECT COUNT(*) FROM vaccins WHERE nom_vac = :nom_vac");
     query.bindValue(":nom_vac", nom_vac);
@@ -85,17 +84,17 @@ bool Rdv::verif()
         errorMessages += "Le vaccin sélectionné n'existe pas.\n";
     }
 
-    // ---- If there are any errors, show them in one message box ----
+
     if (!errorMessages.isEmpty()) {
         QMessageBox::critical(nullptr, "Erreurs", errorMessages);
         return false;
     }
 
-    // ---- All good ----
+
     return true;
 }
 
-// Ajouter (FIXED)
+
 bool Rdv::ajouter()
 {
     if (!verif()) return false;
@@ -108,7 +107,7 @@ bool Rdv::ajouter()
     query.bindValue(":nom_vac", getNomVac());
     query.bindValue(":nom", getNom());
     query.bindValue(":prenom", getPrenom());
-    query.bindValue(":date_rdv", getDateRdv()); // ✅ Directly bind QDate
+    query.bindValue(":date_rdv", getDateRdv());
 
     if (!query.exec()) {
         qDebug() << "Erreur SQL insert: " << query.lastError().text();
@@ -118,7 +117,7 @@ bool Rdv::ajouter()
     return true;
 }
 
-// Afficher
+
 QSqlQueryModel *Rdv::afficher()
 {
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -134,7 +133,7 @@ QSqlQueryModel *Rdv::afficher()
     return model;
 }
 
-// Supprimer
+
 bool Rdv::supprimer(int id_rdv)
 {
     QSqlQuery query;
@@ -143,7 +142,7 @@ bool Rdv::supprimer(int id_rdv)
     return query.exec();
 }
 
-// Trier
+
 QSqlQueryModel* Rdv::trier(QString column, QString order)
 {
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -152,7 +151,7 @@ QSqlQueryModel* Rdv::trier(QString column, QString order)
     return model;
 }
 
-// Modifier (FIXED)
+
 bool Rdv::modifier(int id_rdv)
 {
     if (!verif()) return false;
@@ -165,7 +164,7 @@ bool Rdv::modifier(int id_rdv)
     query.bindValue(":nom_vac", getNomVac());
     query.bindValue(":nom", getNom());
     query.bindValue(":prenom", getPrenom());
-    query.bindValue(":date_rdv", getDateRdv()); // ✅ Directly bind QDate
+    query.bindValue(":date_rdv", getDateRdv());
     query.bindValue(":id_rdv", id_rdv);
 
     if (!query.exec()) {
@@ -176,7 +175,6 @@ bool Rdv::modifier(int id_rdv)
     return true;
 }
 
-// Load by ID
 bool Rdv::loadById(int id_rdv)
 {
     QSqlQuery query;
@@ -197,30 +195,46 @@ QStandardItemModel* Rdv::afficherListeAttenteAvecStatut()
 {
     QSqlQuery query;
     QStandardItemModel* model = new QStandardItemModel();
-
-    // Set column headers
     model->setHorizontalHeaderLabels({"ID_RDV", "HEURE", "NOM_VAC", "NOM", "PRENOM", "DATE_RDV", "STATUT"});
 
-    // Query RDVs ordered by DATE_RDV
-    if (!query.exec("SELECT ID_RDV, HEURE, NOM_VAC, NOM, PRENOM, DATE_RDV FROM RDV ORDER BY DATE_RDV ASC")) {
+    // Sort by DATE_RDV and HEURE
+    if (!query.exec("SELECT ID_RDV, HEURE, NOM_VAC, NOM, PRENOM, DATE_RDV FROM RDV ORDER BY DATE_RDV ASC, HEURE ASC")) {
         qDebug() << "Erreur requête RDV:" << query.lastError().text();
         return model;
     }
 
-    int index = 0;
+    // Map to track how many confirmed per date
+    QMap<QDate, int> confirmedCountPerDate;
+
     while (query.next()) {
         QList<QStandardItem*> row;
 
-        for (int i = 0; i < 6; ++i) {
-            row << new QStandardItem(query.value(i).toString());
-        }
+        QString id = query.value("ID_RDV").toString();
+        QString heure = query.value("HEURE").toString();
+        QString nom_vac = query.value("NOM_VAC").toString();
+        QString nom = query.value("NOM").toString();
+        QString prenom = query.value("PRENOM").toString();
+        QDate date_rdv = query.value("DATE_RDV").toDate();
 
-        // Set temporary STATUT: first 3 = Confirmé, rest = Attente
-        QString statut = (index < 3) ? "Confirmé" : "Attente";
+        // Add items to row
+        row << new QStandardItem(id)
+            << new QStandardItem(heure)
+            << new QStandardItem(nom_vac)
+            << new QStandardItem(nom)
+            << new QStandardItem(prenom)
+            << new QStandardItem(date_rdv.toString("yyyy-MM-dd"));
+
+        // Decide status: max 3 confirmed per day
+        QString statut;
+        if (confirmedCountPerDate.value(date_rdv, 0) < 3) {
+            statut = "Confirmé";
+            confirmedCountPerDate[date_rdv]++;
+        } else {
+            statut = "Attente";
+        }
         row << new QStandardItem(statut);
 
         model->appendRow(row);
-        index++;
     }
 
     return model;
