@@ -19,6 +19,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void analyserReponses();
+
 
 private slots:
     void boutonValider_clicked();
@@ -29,11 +31,12 @@ private slots:
     void on_rechercher_Button_clicked();
     void on_retour_Button_clicked();
     void on_export_Button_clicked();
+    void on_val_button_clicked();
+    void on_annul_button_clicked();
+    //void diagnostiquerAI();
 
 
-
-
-
+    void on_diagnostiquer_clicked();
 
 private:
     Ui::MainWindow *ui;

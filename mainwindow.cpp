@@ -14,6 +14,9 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QtCharts/QChart>
+#include <QProcess>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 
 
@@ -30,6 +33,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->valider_button_modif, &QPushButton::clicked, this, &MainWindow::valider_buttonmodif_clicked);
     connect(ui->valider_supression, &QPushButton::clicked, this, &MainWindow::valider_supression_clicked);
     connect(ui->tri_button, &QPushButton::clicked, this, &MainWindow::on_tri_button_clicked);
+    connect(ui->val_button, &QPushButton::clicked, this, &MainWindow::analyserReponses);
+    connect(ui->diagnostiquer, &QPushButton::clicked, this, &MainWindow::on_diagnostiquer_clicked);
+
+    //connect (ui->pushButton_diagnostiquer, &QPushButton::clicked, this, &MainWindow::on_pushButton_diagnostiquer_clicked);
+
 
     afficherPatients();
 }
@@ -493,12 +501,6 @@ void MainWindow::on_export_Button_clicked() {
             xOffset += colWidths[col];
         }
         yOffset += lineHeight;
-
-        // Si la page est remplie, on crée une nouvelle page
-
-
-
-
     }
 
     painter.end();
@@ -594,6 +596,130 @@ void MainWindow::afficherStatistiques() {
     QLayout *layout2 = ui->stati->layout();
     layout2->addWidget(chartViewType);
 }
+
+void MainWindow::on_val_button_clicked()
+{
+    QString pythonPath = "C:/Users/HP/AppData/Local/Programs/Python/Python310/python.exe";
+    QString scriptPath = "C:/Users/HP/Desktop/projetc-/emotion_recognition.py"; // Chemin complet du script Python
+
+    // Récupérer la réponse à analyser (par exemple, rep1)
+    QString response = ui->rep1->toPlainText();
+
+    // Lancer le script Python avec la réponse comme argument
+    QProcess process;
+    process.start(pythonPath, QStringList() << scriptPath << response);
+
+    if (!process.waitForStarted()) {
+        QMessageBox::critical(this, "Erreur", "Impossible de démarrer le script Python.");
+        return;
+    }
+
+    process.waitForFinished();
+    QString result = process.readAllStandardOutput().trimmed();  // Récupère la sortie du script Python
+
+    // Afficher le résultat dans le label "aff_resul"
+    ui->aff_resul->setText("Emotion detectee : " + result);
+}
+
+
+
+
+
+void MainWindow::analyserReponses() {
+    QString pythonPath = "C:/Users/HP/AppData/Local/Programs/Python/Python310/python.exe";
+    QString scriptPath = "C:/Users/HP/Desktop/projetc-/emotion_recognition.py";
+
+
+    QString rep1 = ui->rep1->toPlainText();
+    QString rep2 = ui->rep2->toPlainText();
+    QString rep3 = ui->rep3->toPlainText();
+    QString rep4 = ui->rep4->toPlainText();
+    QString rep5 = ui->rep5->toPlainText();
+
+    QStringList arguments;
+    arguments << scriptPath << rep1 << rep2 << rep3 << rep4 << rep5;
+
+    QProcess *process = new QProcess(this);
+
+    // Connexion quand le script se termine complètement
+    connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+            this, [=](int exitCode, QProcess::ExitStatus exitStatus) {
+                qDebug() << "Exit Code: " << exitCode;
+                qDebug() << "Exit Status: " << exitStatus;
+
+                if (exitStatus == QProcess::NormalExit && exitCode == 0) {
+                    QString output = process->readAllStandardOutput();
+                    QStringList lines = output.split('\n', Qt::SkipEmptyParts);
+
+                    QString resultText = "Émotions détectées :\n";
+                    for (int i = 0; i < lines.size() - 1; ++i) {
+                        resultText += lines[i].trimmed() + "\n";
+                    }
+
+                    resultText += "\nÉmotion globale : " + lines.last().trimmed();
+
+                    ui->aff_resul->setText(resultText);
+                } else {
+                    qDebug() << "Erreur dans le script Python : " << process->errorString();
+                    QMessageBox::critical(this, "Erreur", "Le script Python a échoué.");
+                }
+
+                process->deleteLater();
+            });
+
+    // Gestion des erreurs
+    connect(process, &QProcess::errorOccurred, [=](QProcess::ProcessError error) {
+        qDebug() << "Erreur du processus : " << error;
+        QMessageBox::critical(this, "Erreur", "Erreur de lancement du script Python.");
+        process->deleteLater();
+    });
+    connect(process, &QProcess::readyReadStandardError, [=]() {
+        QString errorOutput = process->readAllStandardError();
+        qDebug() << "Erreur dans le script Python : " << errorOutput;
+    });
+
+
+    process->start(pythonPath, arguments);
+}
+
+void MainWindow::on_annul_button_clicked()
+{
+    ui->rep1->clear();
+    ui->rep2->clear();
+    ui->rep3->clear();
+    ui->rep4->clear();
+    ui->rep5->clear();
+    ui->aff_resul->clear();
+    ui->rep1->setFocus();
+}
+
+
+void MainWindow::on_diagnostiquer_clicked()
+{
+    QString pythonPath = "C:/Users/HP/AppData/Local/Programs/Python/Python310/python.exe";
+    QString scriptPath = "C:/Users/HP/Desktop/projetc-/diagnostic_model.py";
+
+    QString q1 = ui->q1->toPlainText();
+    QString q2 = ui->q2->toPlainText();
+    QString q3 = ui->q3->toPlainText();
+
+    QProcess process;
+    QStringList arguments;
+    arguments << scriptPath << q1 << q2 << q3;
+
+    process.start(pythonPath, arguments);
+
+    if (!process.waitForStarted()) {
+        QMessageBox::critical(this, "Erreur", "Impossible de démarrer le script Python.");
+        return;
+    }
+
+    process.waitForFinished();
+    QString result = process.readAllStandardOutput().trimmed();
+    ui->aff_diagno->setText("Diagnostic IA : " + result);
+
+}
+
 
 
 
