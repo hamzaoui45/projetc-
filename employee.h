@@ -59,6 +59,7 @@ public:
     bool modifier();
     bool recuperer(int);
     QSqlQueryModel* trier(int test);
+    QSqlQueryModel* trierD(int test);
     QSqlQueryModel* recherche(int id);
     bool exportToPDF(const QString& filePath);
     QGraphicsView* statistiquesPoste();

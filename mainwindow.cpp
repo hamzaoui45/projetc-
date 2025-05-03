@@ -12,6 +12,7 @@
 #include <QDebug>
 #include "log.h"
 #include <opencv2/opencv.hpp>
+#include <QThread> // Added to fix QThread not declared
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +22,28 @@ MainWindow::MainWindow(QWidget *parent)
     employee e;
     ui->tableView->setModel(e.afficher());
     afficherStatistiques();
+
+    // Connect to Arduino
+    int ret = arduino.connect_arduino();
+    if (ret == 0) {
+        qDebug() << "Arduino connected successfully.";
+        connect(arduino.getserial(), &QSerialPort::readyRead, this, &MainWindow::updateA);
+        // Send initial quantity with retry
+        for (int attempt = 1; attempt <= 3; ++attempt) {
+            afficherquantity();
+            QThread::msleep(500); // Increased delay for Arduino reset
+            QByteArray data = arduino.read_from_arduino();
+            if (data.contains("Received new quantity")) {
+                qDebug() << "Arduino confirmed receipt of initial quantity";
+                break;
+            }
+            qDebug() << "Attempt" << attempt << "to send initial quantity failed. Retrying...";
+        }
+    } else {
+        qDebug() << "Failed to connect to Arduino.";
+    }
+
+
 }
 
 MainWindow::~MainWindow()
@@ -397,4 +420,101 @@ void MainWindow::on_pushButton_16_clicked()
     this->close();  // Fermer MainWindow
     class log l;
     l.exec();
+}
+
+void MainWindow::on_tr_activated(int index)
+{
+    employee e;
+
+    switch (index)
+    {
+    case 0: // Tri par ID
+        ui->tableView->setModel(e.trierD(1));
+        break;
+    case 1: // Tri par salaire
+        ui->tableView->setModel(e.trierD(2));
+        break;
+    case 2: // Tri par nom
+        ui->tableView->setModel(e.trierD(3));
+        break;
+    case 3: // Tri par  date d'embauche
+        ui->tableView->setModel(e.trierD(4));
+        break;
+    default:
+        ui->tableView->setModel(e.afficher()); // Afficher sans tri
+        break;
+    }
+}
+
+
+// Ton code d'ajout, suppression, modification reste exactement celui que tu as donné, il est correct
+
+void MainWindow::afficherquantity()
+{
+    qDebug() << "Entering afficherquantity";
+    try {
+        QSqlQuery query;
+        query.prepare("SELECT QUANTITE FROM VACCINS WHERE ID_VAC = :id_vac");
+        query.bindValue(":id_vac", 1);
+        if (query.exec() && query.next()) {
+            int quantity = query.value(0).toInt();
+            QByteArray data = QString::number(quantity).toUtf8() + "\n";
+            arduino.write_to_arduino(data);
+            qDebug() << "Quantité envoyée à l'Arduino:" << quantity;
+        } else {
+            //qDebug() << "Erreur lors de la récupération de la quantité. Error:" << query.lastError().text();
+        }
+    } catch (const std::exception& e) {
+        qDebug() << "Exception in afficherquantity:" << e.what();
+    } catch (...) {
+        qDebug() << "Unknown exception in afficherquantity";
+    }
+}
+
+void MainWindow::updateA()
+{
+    qDebug() << "Entering updateA";
+    QByteArray qdata = arduino.read_from_arduino();
+    QString message = QString(qdata).trimmed();
+    qDebug() << "Received from Arduino:" << message;
+
+    if (message.contains("UPDATE_QUANTITY")) {
+        //qDebug() << "Processing UPDATE_QUANTITY message";
+        // Check cooldown
+        qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+        if (lastUpdateProcessed != 0 && currentTime - lastUpdateProcessed < updateCooldown) {
+            qDebug() << "Ignoring update due to cooldown";//pour limiter la fréquence des mises à jour
+            return;
+        }
+
+        QSqlQuery query;
+        try {
+
+            query.prepare("UPDATE VACCINS SET QUANTITE = GREATEST(QUANTITE - 1, 0) WHERE ID_VAC = :id_vac");
+            query.bindValue(":id_vac", 1);
+            if (query.exec()) {
+                //qDebug() << "Update query executed successfully";
+                lastUpdateProcessed = currentTime;
+                // Verify updated quantity
+                QSqlQuery verifyQuery;
+                verifyQuery.prepare("SELECT QUANTITE FROM VACCINS WHERE ID_VAC = :id_vac");
+                verifyQuery.bindValue(":id_vac", 1);
+                if (verifyQuery.exec() && verifyQuery.next()) {
+                    qDebug() << "Updated QUANTITE is:" << verifyQuery.value(0).toInt();
+                }
+                // Send updated quantity
+                afficherquantity();
+            } else {
+                qDebug() << "Failed to update vaccine quantity. Error:" ;
+            }
+        } catch (const std::exception& e) {
+            qDebug() << "Exception in updateA:" << e.what();
+        } catch (...) {
+            qDebug() << "Unknown exception in updateA";
+        }
+    } else if (!message.isEmpty()) {
+        qDebug() << "Unexpected message:" << message;
+    } else {
+        qDebug() << "Empty message received";
+    }
 }

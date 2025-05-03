@@ -235,6 +235,41 @@ QSqlQueryModel* employee::trier(int test)
 }
 
 
+QSqlQueryModel* employee::trierD(int test)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query;
+
+    switch (test)
+    {
+    case 1:
+        query.prepare("SELECT * FROM employés ORDER BY ID_EMP DESC"); // Tri par ID descendant
+        break;
+    case 2:
+        query.prepare("SELECT * FROM employés ORDER BY SALAIRE DESC"); // Tri par salaire descendant
+        break;
+    case 3:
+        query.prepare("SELECT * FROM employés ORDER BY NOM DESC"); // Tri par nom descendant
+        break;
+    case 4:
+        query.prepare("SELECT * FROM employés ORDER BY DATE_EMB DESC"); // Tri par date d'embauche descendant
+        break;
+    default:
+        query.prepare("SELECT * FROM employés ORDER BY ID_EMP DESC"); // Tri par défaut descendant
+        break;
+    }
+
+    if (query.exec())
+    {
+        model->setQuery(std::move(query));
+    }
+
+    return model;
+}
+
+
+
+
 //recherche
 QSqlQueryModel* employee::recherche(int id)
 {
@@ -319,7 +354,7 @@ QSqlQueryModel* employee::recherche(int id)
     return view;
 }*/
 
-
+//stat
 QGraphicsView* employee::statistiquesPoste() {
     QGraphicsScene *scene = new QGraphicsScene();
 

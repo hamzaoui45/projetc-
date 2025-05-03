@@ -1,5 +1,6 @@
 Employee_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/QBuffer \
+	C:/Qt/6.7.3/mingw_64/include/QtCore/QDebug \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/QProcess \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/QTimer \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
@@ -74,6 +75,8 @@ Employee_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qpoint.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qprocess.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qprocessordetection.h \
+	C:/Qt/6.7.3/mingw_64/include/QtCore/qproperty.h \
+	C:/Qt/6.7.3/mingw_64/include/QtCore/qpropertyprivate.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qrect.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qrefcount.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h \
@@ -161,6 +164,12 @@ Employee_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
 	C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
 	C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/QSerialPort \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/QSerialPortInfo \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialport.h \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialportglobal.h \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialportinfo.h \
+	C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qtserialportexports.h \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
@@ -352,6 +361,14 @@ Employee_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortAdditionalTargetInfo.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfig.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersion.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersionImpl.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortDependencies.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets-relwithdebinfo.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortVersionlessTargets.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake \
@@ -643,6 +660,8 @@ Employee_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Users/VIVOBOOK/Documents/Employee/CMakeLists.txt \
+	C:/Users/VIVOBOOK/Documents/Employee/arduino.cpp \
+	C:/Users/VIVOBOOK/Documents/Employee/arduino.h \
 	C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/deconnexion.qrc \
 	C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/logo.qrc \
 	C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/pdf.qrc \
@@ -653,8 +672,6 @@ Employee_autogen/timestamp: \
 	C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/Employee_autogen/moc_predefs.h \
 	C:/Users/VIVOBOOK/Documents/Employee/connexion.cpp \
 	C:/Users/VIVOBOOK/Documents/Employee/connexion.h \
-	C:/Users/VIVOBOOK/Documents/Employee/dialog.cpp \
-	C:/Users/VIVOBOOK/Documents/Employee/dialog.h \
 	C:/Users/VIVOBOOK/Documents/Employee/employee.cpp \
 	C:/Users/VIVOBOOK/Documents/Employee/employee.h \
 	C:/Users/VIVOBOOK/Documents/Employee/frt.qrc \
@@ -691,7 +708,6 @@ Employee_autogen/timestamp: \
 	C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw/lib/OpenCVConfig.cmake \
 	C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw/lib/OpenCVModules-release.cmake \
 	C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw/lib/OpenCVModules.cmake \
-	C:/Users/VIVOBOOK/Documents/Employee/dialog.ui \
 	C:/Users/VIVOBOOK/Documents/Employee/log.ui \
 	C:/Users/VIVOBOOK/Documents/Employee/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

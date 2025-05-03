@@ -28,10 +28,11 @@ log::~log()
     delete ui;
 }
 
-void log::on_connect_clicked()
+/*void log::on_connect_clicked()
 {
-    QString id = ui->user->text();      // Récupérer l'ID entré
-    QString mdp = ui->pswd->text();     // Récupérer le mot de passe entré
+    QString id = ui->user->text().trimmed();
+    QString mdp = ui->pswd->text().trimmed();
+
     //int idem=id.toInt();
 
     // Vérifier si les champs ne sont pas vides
@@ -44,9 +45,10 @@ void log::on_connect_clicked()
 
     // Connexion à la base de données et vérification de l'authentification
     QSqlQuery query;
-    query.prepare("SELECT * FROM employés WHERE ID_EMP = :id AND MDP = :mdp");
+    query.prepare("SELECT * FROM employés WHERE LOWER(TRIM(ID_EMP)) = LOWER(TRIM(:id)) AND LOWER(TRIM(MDP)) = LOWER(TRIM(:mdp))");
     query.bindValue(":id", id);
     query.bindValue(":mdp", mdp);
+
 
     if (query.exec()&& query.next()) {
         QMessageBox::information(this, "Connexion réussie", "Bienvenue !");
@@ -60,7 +62,60 @@ void log::on_connect_clicked()
     } else {
         QMessageBox::critical(this, "Échec", "ID ou mot de passe incorrect !");
     }
+}*/
+
+
+
+
+//session
+void log::on_connect_clicked()
+{
+    QString id = ui->user->text().trimmed();
+    QString mdp = ui->pswd->text().trimmed();
+
+    if (id.isEmpty() || mdp.isEmpty()) {
+        QMessageBox::warning(this, "Erreur", "Veuillez remplir tous les champs !");
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT POSTE FROM employés WHERE LOWER(TRIM(ID_EMP)) = LOWER(TRIM(:id)) AND LOWER(TRIM(MDP)) = LOWER(TRIM(:mdp))");
+    query.bindValue(":id", id);
+    query.bindValue(":mdp", mdp);
+
+    if (query.exec() && query.next()) {
+        QString poste = query.value(0).toString().toLower();
+        QMessageBox::information(this, "Connexion réussie", "Bienvenue " + poste + " !");
+
+        if (poste == "médecin" || poste == "medecin") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        }
+        else if (poste == "agent") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        }
+
+        else if (poste == " RH manager") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        }
+
+
+        this->close();
+    } else {
+        QMessageBox::critical(this, "Échec", "ID ou mot de passe incorrect !");
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 /*using namespace cv;
@@ -72,7 +127,7 @@ cv::Mat QImageToMat(const QImage &image) {
 
 
 
-void log::on_recof_clicked()
+/*void log::on_recof_clicked()
 {
     ui->speechOutput->setText("Vérification faciale... Souriez à la caméra !");
 
@@ -86,10 +141,10 @@ void log::on_recof_clicked()
         return;
     }
 
-    QString output = faceProcess.readAllStandardOutput().trimmed();
+    QString output = faceProcess.readAllStandardOutput().trimmed();//testocki resultat mtaa sortie fl output
     // Supprimer les caractères \r pour gérer les fins de ligne Windows
     output.replace("\r", "");
-    QStringList outputLines = output.split("\n", Qt::SkipEmptyParts);
+    QStringList outputLines = output.split("\n", Qt::SkipEmptyParts);//nettoyage
 
     // Afficher la sortie pour débogage
    // qDebug() << "Sortie de face_recognition.py :" << outputLines;
@@ -156,7 +211,7 @@ void log::on_recof_clicked()
             continue;
         }
 
-        QString compareResult = QString::fromUtf8(compareProcess.readAllStandardOutput()).trimmed();//yhawalha chaine cohérente
+        QString compareResult = QString::fromUtf8(compareProcess.readAllStandardOutput()).trimmed();//yhawalha chaine cohérente qbyte array
         compareResult.replace("\r", "").replace("\n", " ");
         qDebug() << "Résultat brut de compare_faces.py pour ID_EMP" << idEmp << ":" << compareResult;
 
@@ -180,6 +235,113 @@ void log::on_recof_clicked()
     MainWindow *m = new MainWindow();
     m->show();
     this->close();
+}*/
+
+
+
+
+void log::on_recof_clicked()
+{
+    ui->speechOutput->setText("Vérification faciale... Souriez à la caméra !");
+
+    QProcess faceProcess;
+    QString workingDir = QCoreApplication::applicationDirPath();
+    faceProcess.setWorkingDirectory(workingDir);
+    faceProcess.start("C:/Users/VIVOBOOK/AppData/Local/Programs/Python/Python312/python.exe",
+                      QStringList() << "face_recognition.py");
+
+    if (!faceProcess.waitForFinished(15000)) {
+        QMessageBox::warning(this, "Erreur", "Échec de la capture d'image.");
+        return;
+    }
+
+    QString output = faceProcess.readAllStandardOutput().trimmed();
+    output.replace("\r", "");
+    QStringList outputLines = output.split("\n", Qt::SkipEmptyParts);
+
+    if (!outputLines.contains("FaceDetected")) {
+        QMessageBox::critical(this, "Échec", "Aucun visage détecté.");
+        return;
+    }
+
+    QString capturedImagePath = outputLines.last().trimmed();
+    if (capturedImagePath.startsWith("Erreur")) {
+        QMessageBox::critical(this, "Erreur", capturedImagePath);
+        return;
+    }
+
+    ui->speechOutput->setText("Comparaison en cours...");
+
+    QSqlQuery query;
+    query.prepare("SELECT ID_EMP, POSTE, IMAGE FROM employés WHERE IMAGE IS NOT NULL");
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Erreur", "Erreur base de données !");
+        return;
+    }
+
+    bool found = false;
+    int matchedId = -1;
+    QString poste;
+
+    while (query.next()) {
+        int idEmp = query.value("ID_EMP").toInt();
+        QString currentPoste = query.value("POSTE").toString().toLower();
+        QByteArray photoData = query.value("IMAGE").toByteArray();
+
+        QString referenceImagePath = workingDir + "/reference_face_" + QString::number(idEmp) + ".jpg";
+        QFile file(referenceImagePath);
+        if (!file.open(QIODevice::WriteOnly)) continue;
+        file.write(photoData);
+        file.close();
+
+        QProcess compareProcess;
+        compareProcess.setWorkingDirectory(workingDir);
+        compareProcess.start("C:/Users/VIVOBOOK/AppData/Local/Programs/Python/Python312/python.exe",
+                             QStringList() << "compare_faces.py" << capturedImagePath << referenceImagePath);
+        if (!compareProcess.waitForFinished(20000)) {
+            QFile::remove(referenceImagePath);
+            continue;
+        }
+
+        QString result = QString::fromUtf8(compareProcess.readAllStandardOutput()).trimmed();
+        result.replace("\r", "").replace("\n", " ");
+        QFile::remove(referenceImagePath);
+
+        if (result.contains("Match")) {
+            matchedId = idEmp;
+            poste = currentPoste;
+            found = true;
+            break;
+        }
+    }
+
+    QFile::remove(capturedImagePath);
+
+    if (!found) {
+        QMessageBox::critical(this, "Échec", "Aucune correspondance trouvée !");
+        return;
+    }
+
+    QMessageBox::information(this, "Connexion réussie",
+                             "Bienvenue !\nID : " + QString::number(matchedId) + "\nPoste : " + poste);
+
+
+    poste = poste.trimmed().toLower();
+    if (poste == "médecin" || poste == "medecin") {
+        MainWindow *m = new MainWindow();
+        m->show();
+    }
+    else if (poste == "agent") {
+        MainWindow *m = new MainWindow();
+        m->show();
+    }
+
+    else if (poste == " RH manager") {
+        MainWindow *m = new MainWindow();
+        m->show();
+    }
+
+    this->close();
 }
 
 
@@ -191,20 +353,12 @@ void log::on_recof_clicked()
 
 
 
-
-
-
-
-
-
-
-
-void log::on_recov_clicked()
+/*void log::on_recov_clicked()
 {
     // Afficher que l'écoute commence
     ui->speechOutput->setText("En écoute...");
 
-    // Appeler le script Python pour la reconnaissance vocale
+    // Appeler le script Python
     QProcess process;
     process.start("C:/Users/VIVOBOOK/AppData/Local/Programs/Python/Python312/python.exe",
                   QStringList() << "recognize.py");
@@ -251,5 +405,98 @@ void log::on_recov_clicked()
         QMessageBox::critical(this, "Échec", "ID introuvable !");
     }
 
+}*/
+
+
+
+
+
+
+
+
+
+
+void log::on_recov_clicked()
+{
+    // Afficher que l'écoute commence
+    ui->speechOutput->setText("En écoute...");
+
+    // Initialiser le processus pour le script Python
+    QProcess process;
+    process.start("C:/Users/VIVOBOOK/AppData/Local/Programs/Python/Python312/python.exe",
+                  QStringList() << "recognize.py");
+
+    // Attendre la fin du processus (10 secondes max)
+    bool finished = process.waitForFinished(10000);
+
+    QString recognizedText;
+    if (!finished || process.exitStatus() != QProcess::NormalExit || process.exitCode() != 0) {
+        QMessageBox::warning(this, "Erreur", "Problème avec le script Python. Veuillez réessayer.");
+        ui->speechOutput->setText("Erreur de reconnaissance");
+        return;
+    }
+
+    // Lire la sortie du script
+    recognizedText = process.readAllStandardOutput().trimmed();
+    if (recognizedText.isEmpty() || recognizedText.startsWith("Erreur")) {
+        QMessageBox::warning(this, "Erreur", "Aucun texte reconnu. Veuillez réessayer.");
+        ui->speechOutput->setText("Aucun texte reconnu");
+        return;
+    }
+
+    // Afficher le texte reconnu pour debug
+    ui->speechOutput->setText("Texte reconnu : " + recognizedText);
+
+    // Nettoyer : garder uniquement les chiffres
+    recognizedText = recognizedText.remove(QRegularExpression("[^0-9]"));
+
+    // Conversion en entier
+    bool ok;
+    int idNumber = recognizedText.toInt(&ok);
+    if (!ok || idNumber <= 0) {
+        QMessageBox::warning(this, "Erreur", "L'ID vocal doit être un nombre entier positif !");
+        return;
+    }
+
+    // Vérification dans la base de données
+    QSqlQuery query;
+    query.prepare("SELECT ID_EMP, Poste FROM employés WHERE ID_EMP = :id");
+    query.bindValue(":id", idNumber);
+
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Erreur", "Erreur lors de la requête à la base de données.");
+        return;
+    }
+
+    if (query.next()) {
+        QString poste = query.value("Poste").toString();
+        QMessageBox::information(this, "Connexion réussie", "Bienvenue, " + poste + " !");
+        poste = poste.trimmed().toLower();
+        // Rediriger vers l'interface appropriée en fonction du poste
+        if (poste == "médecin" || poste == "medecin") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        }
+        else if (poste == "agent") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        }
+
+        else if (poste == " RH manager") {
+            MainWindow *m = new MainWindow();
+            m->show();
+        } else {
+            QMessageBox::warning(this, "Erreur", "Poste inconnu : " + poste);
+            return;
+        }
+
+        // Fermer la fenêtre de login
+        this->close();
+    } else {
+        QMessageBox::critical(this, "Échec", "ID introuvable dans la base de données !");
+    }
 }
+
+
+
 

@@ -1,6 +1,7 @@
 C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/Employee_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/VIVOBOOK/Documents/Employee/mainwindow.h \
   C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release/Employee_autogen/moc_predefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QBuffer \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
@@ -75,6 +76,8 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release
   C:/Qt/6.7.3/mingw_64/include/QtCore/qpoint.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qprocess.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qprocessordetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qproperty.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qpropertyprivate.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qrefcount.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h \
@@ -162,6 +165,12 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release
   C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
   C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
   C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/QSerialPort \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/QSerialPortInfo \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialport.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialportglobal.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qserialportinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSerialPort/qtserialportexports.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
@@ -377,6 +386,7 @@ C:/Users/VIVOBOOK/Documents/Employee/build/Desktop_Qt_6_7_3_MinGW_64_bit-Release
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/VIVOBOOK/Documents/Employee/arduino.h \
   C:/Users/VIVOBOOK/Documents/Employee/log.h \
   C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/base.hpp \
   C:/Users/VIVOBOOK/Downloads/opencv/build/include/opencv2/core/bufferpool.hpp \

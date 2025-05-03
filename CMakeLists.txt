@@ -13,6 +13,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Trouver les packages Qt nécessaires
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql Multimedia)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql Multimedia)
+find_package(Qt6 COMPONENTS Core SerialPort REQUIRED)
+
+# If you're using Qt5, use:
+# find_package(Qt5 COMPONENTS Core SerialPort REQUIRED)
 
 
 
@@ -23,7 +27,7 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    dialog.h dialog.cpp dialog.ui
+
     employee.h employee.cpp
     log.h log.cpp log.ui
     connexion.h connexion.cpp
@@ -42,6 +46,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         user.qrc
         lkkj.qrc
         lak.qrc
+        arduino.h arduino.cpp
     )
 else()
     if(ANDROID)
@@ -56,7 +61,7 @@ else()
 endif()
 
 # Lier les bibliothèques Qt nécessaires
-target_link_libraries(Employee PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Multimedia)
+target_link_libraries(Employee PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Multimedia Qt${QT_VERSION_MAJOR}::SerialPort)
 
 set(OpenCV_DIR "C:/Users/VIVOBOOK/Downloads/opencv/build/x64/mingw")
 find_package(OpenCV REQUIRED PATHS "${OpenCV_DIR}/lib" NO_DEFAULT_PATH)
