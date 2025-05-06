@@ -1,0 +1,13 @@
+debug/connection.o
+debug/dialog.o
+debug/keypadreader.o
+debug/keypadreader.o
+debug/main.o
+debug/mainwindow.o
+debug/rdv.o
+debug/statistiquewidget.o
+debug/qrc_filtre.o
+debug/qrc_images.o
+debug/moc_dialog.o
+debug/moc_keypadreader.o
+debug/moc_mainwindow.o
