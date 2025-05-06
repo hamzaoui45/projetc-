@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "connection.h"
+#include "gressource.h"
+#include "connexion.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -7,11 +7,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
-    Connection c;
+    connexion c;
     //MainWindow w;
     //w.show();
     bool test=c.createconnect();
-    MainWindow w;
+    gressource w;
     w.show();
 
     if(test)
