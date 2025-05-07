@@ -1,0 +1,56 @@
+from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.responses import JSONResponse
+import shutil
+from pathlib import Path
+from llmClaude import identify_medical_equipment
+from textToSpeech import text_to_speech_gtts
+
+app = FastAPI()
+
+@app.post("/identify-and-vocalize-equipment/")
+async def identify_and_vocalize_equipment(file: UploadFile = File(...)):
+    """
+    API endpoint to identify medical equipment from an uploaded image and generate audio.
+    Returns equipment name and absolute path to audio file.
+    """
+    try:
+        # Save uploaded file temporarily
+        temp_image = f"temp_{file.filename}"
+        with open(temp_image, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        # Identify equipment
+        equipment_name = identify_medical_equipment(
+            image_path=temp_image,
+            prompt="Name the medical equipment in this picture in one short phrase. No other text allowed."
+        )
+        
+        # Define absolute output path for audio
+        audio_output_path = Path.cwd() / "audio" / "output.mp3"
+        
+        # Generate audio and get absolute path
+        absolute_audio_path = text_to_speech_gtts(equipment_name, str(audio_output_path))
+        
+        # Clean up temp image file
+        Path(temp_image).unlink()
+        
+        # Return equipment name and absolute audio file path
+        response = {
+            "equipment_name": equipment_name,
+            "audio_file_path": absolute_audio_path
+        }
+        
+        return JSONResponse(content=response, status_code=200)
+    
+    except Exception as e:
+        # Clean up temp file if it exists
+        if 'temp_image' in locals():
+            Path(temp_image).unlink()
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+
+# Run with: uvicorn main:app --reload
+# Test ON GIT BASH: 
+r'''
+curl -X POST "http://127.0.0.1:8000/identify-and-vocalize-equipment/" \
+-F "file=@C:\Users\a7mda\Desktop\produit.jpg"
+'''

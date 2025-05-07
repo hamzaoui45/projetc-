@@ -1,0 +1,11 @@
+release/gressource.o
+release/main.o
+release/mainwindow.o
+release/employee.o
+release/log.o
+release/connexion.o
+release/arduino.o
+release/ressources.o
+release/moc_gressource.o
+release/moc_mainwindow.o
+release/moc_log.o
