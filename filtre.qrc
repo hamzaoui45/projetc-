@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/"/>
-    <qresource prefix="/new/prefix1">
-        <file>Filtre.png</file>
-    </qresource>
-</RCC>

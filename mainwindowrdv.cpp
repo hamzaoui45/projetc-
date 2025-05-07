@@ -1,6 +1,7 @@
 #include "mainwindowrdv.h"
 #include "ui_mainwindowrdv.h"
 #include "rdv.h"
+#include "gressource.h"
 #include <QMessageBox>
 #include <QPdfWriter>
 #include <QPainter>
@@ -25,6 +26,7 @@
 #include <QMap>
 #include <QSerialPort>
 #include <QSerialPortInfo>
+#include "arduino.h"
 
 MainWindowrdv::MainWindowrdv(QWidget *parent)
     : QMainWindow(parent)
@@ -66,7 +68,7 @@ MainWindowrdv::MainWindowrdv(QWidget *parent)
     });
     timer->start(3);
 
-    connect(ui->pb_ajouter, &QPushButton::clicked, this, &MainWindowrdv::on_pb_ajouter_clicked);
+    connect(ui->pb_ajouter, &QPushButton::clicked, this, &MainWindowrdv::on_pb_ajouter_clicked   );
     connect(ui->pb_supprimer, &QPushButton::clicked, this, &MainWindowrdv::on_pb_supprimer_clicked);
     connect(ui->pb_generate_pdf, &QPushButton::clicked, this, &MainWindowrdv::on_pb_generate_pdf_clicked);
     connect(ui->pb_recherche, &QPushButton::clicked, this, &MainWindowrdv::on_pb_recherche_clicked);
@@ -526,3 +528,19 @@ void MainWindowrdv::handleVaccineID(const QString &vaccineID)
         arduino->sendResponse("OFF");  // Send DENY in case of query error
     }
 }
+/*void MainWindow::on_pushButton_6_clicked()
+{
+    this->close();
+    gressource *gr = new gressource();
+    gr->show();
+
+}
+void MainWindow::on_pushButton_7_clicked()
+{
+    this->close();
+    MainWindowrdv *rdv = new MainWindowrdv(); // Initialize the MainWindowrdv object
+    rdv->show();
+
+
+}
+*/

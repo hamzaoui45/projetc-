@@ -81,7 +81,7 @@
      <string>Gestion Patients</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -97,7 +97,7 @@
      <string>Gestion employés</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -113,7 +113,7 @@
      <string>Gestion ressources</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -181,7 +181,7 @@ background-color: rgb(81, 182, 182);</string>
      <enum>Qt::TextFormat::RichText</enum>
     </property>
     <property name="pixmap">
-     <pixmap resource="images.qrc">:/logo.png</pixmap>
+     <pixmap>:/logo.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1169,8 +1169,6 @@ color: rgb(7, 7, 7);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

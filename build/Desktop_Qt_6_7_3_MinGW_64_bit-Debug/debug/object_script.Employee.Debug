@@ -1,0 +1,16 @@
+debug/gressource.o
+debug/main.o
+debug/mainwindow.o
+debug/employee.o
+debug/log.o
+debug/connexion.o
+debug/arduino.o
+debug/mainwindowrdv.o
+debug/rdv.o
+debug/ressources.o
+debug/qrc_images.o
+debug/moc_gressource.o
+debug/moc_mainwindow.o
+debug/moc_log.o
+debug/moc_arduino.o
+debug/moc_mainwindowrdv.o

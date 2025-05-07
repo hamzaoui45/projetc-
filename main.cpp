@@ -1,29 +1,26 @@
-#include "mainwindowrdv.h"
+#include "mainwindow.h"
+#include"connexion.h"
+#include"gressource.h"
+#include"log.h"
 #include <QApplication>
-#include <QMessageBox>
-#include <QSqlDatabase>
-#include <QDebug>
-#include "connection.h"
+#include "mainwindowrdv.h"
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    connexion c;
+    bool test=c.createconnect();
+    if(test)
 
-    Connection c;
-    bool test = c.createconnect();
 
-    MainWindowrdv w;
+    {QMessageBox::information(nullptr, QObject::tr("database is open"),
+                                 QObject::tr("connection successful.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
 
-    if (test)
-    {
-        w.show();
-    }
-    else
-    {
-        QMessageBox::critical(nullptr, QObject::tr("Database is not open"),
-                              QObject::tr("Connection failed.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);
     }
 
+    class log l;
+    l.exec();
     return a.exec();
 }
