@@ -21,19 +21,13 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>580</y>
+      <y>590</y>
       <width>151</width>
       <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>Gestion Vaccins</string>
@@ -48,14 +42,8 @@ color: rgb(255, 255, 255);</string>
       <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>Gestion Patients</string>
@@ -65,7 +53,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>60</y>
+      <y>70</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -87,8 +75,7 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;DASHBOARD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -135,13 +122,8 @@ color: rgb(255, 255, 255);</string>
       <height>29</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">color : white;
+     <string notr="true">color : black;
 background-color: rgb(81, 182, 182);</string>
     </property>
     <property name="text">
@@ -157,14 +139,8 @@ background-color: rgb(81, 182, 182);</string>
       <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>Gestion employés</string>
@@ -179,16 +155,11 @@ color: rgb(255, 255, 255);</string>
       <height>561</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
      <string notr="true">/*background-color: rgb(81, 182, 182);*/
 QTabBar::tab {
-	background-color: #d5f1f0;
-	color: Black;
+    background-color: rgb(81, 182, 182); /* Fond transparent par défaut */
+    color: black; /* Couleur du texte */
     border: 1px solid #C2C7CB; /* Bordure */
     border-bottom-color: transparent; /* Supprime la bordure inférieure */
     min-width: 8ex;
@@ -273,7 +244,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="Rechercher">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>110</x>
         <y>90</y>
         <width>101</width>
         <height>31</height>
@@ -305,14 +276,8 @@ QPushButton:hover {
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Tri&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -327,14 +292,8 @@ color: rgb(255, 255, 255);</string>
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Recherche&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -476,14 +435,8 @@ QHeaderView::section:hover {
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Suppression&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -714,7 +667,7 @@ color : black
         <x>10</x>
         <y>50</y>
         <width>921</width>
-        <height>471</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -751,14 +704,8 @@ color : black;
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;AJOUT RESSOURCE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -775,13 +722,11 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -798,13 +743,11 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Quantité&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -835,13 +778,11 @@ color:rgb(0, 0, 0)</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Prix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -858,13 +799,11 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Etat&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -980,7 +919,7 @@ color:rgb(0, 0, 0)</string>
         <x>10</x>
         <y>50</y>
         <width>921</width>
-        <height>471</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1013,13 +952,8 @@ color:black;</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 241, 240);
+       <string notr="true">background-color: white;
 color : black;
 </string>
       </property>
@@ -1038,13 +972,11 @@ color : black;
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Référence&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1075,13 +1007,11 @@ color:rgb(0, 0, 0)</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1110,13 +1040,8 @@ color:rgb(0, 0, 0)</string>
         <height>31</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 241, 240);
+       <string notr="true">background-color: white;
 color : black
 </string>
       </property>
@@ -1152,13 +1077,11 @@ color:rgb(0, 0, 0)</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Etat&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1175,13 +1098,11 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Prix&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1195,11 +1116,6 @@ color: rgb(255, 255, 255);</string>
         <width>121</width>
         <height>41</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <bold>false</bold>
-       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1239,13 +1155,11 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <bold>true</bold>
         <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; font-style:italic;&quot;&gt;Quantité&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1260,16 +1174,11 @@ color: rgb(255, 255, 255);</string>
         <height>31</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>false</bold>
-       </font>
-      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: lightblue; 
-  color: black;
-    border: 1px solid gray; 
+    background-color: lightblue; /* Couleur de fond par défaut */
+    color: black; /* Couleur du texte par défaut */
+    border: 1px solid gray; /* Bordure par défaut */
     padding: 5px; /* Marge interne par défaut */
 }
 
@@ -1291,14 +1200,8 @@ QPushButton:hover {
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <bold>true</bold>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(5, 105, 107);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;MODIFIER RESSOURCE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1331,7 +1234,7 @@ color: rgb(255, 255, 255);</string>
         <x>20</x>
         <y>50</y>
         <width>901</width>
-        <height>471</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1444,10 +1347,10 @@ QPushButton:hover {
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>-20</y>
-      <width>131</width>
-      <height>121</height>
+      <x>10</x>
+      <y>10</y>
+      <width>161</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1460,7 +1363,7 @@ QPushButton:hover {
      <enum>Qt::TextFormat::RichText</enum>
     </property>
     <property name="pixmap">
-     <pixmap resource="images.qrc">:/new/user/imgs/Vaxhaven__6_-removebg-preview (1).png</pixmap>
+     <pixmap>:/logo.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1475,14 +1378,8 @@ QPushButton:hover {
       <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>Gestion rendez-vous</string>
@@ -1497,14 +1394,8 @@ color: rgb(255, 255, 255);</string>
       <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 105, 107);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(5, 105, 107);</string>
     </property>
     <property name="text">
      <string>Gestion ressources</string>
@@ -1514,6 +1405,7 @@ color: rgb(255, 255, 255);</string>
    <zorder>label_2</zorder>
    <zorder>pushButton_9</zorder>
    <zorder>pushButton_4</zorder>
+   <zorder>label_7</zorder>
    <zorder>pushButton_13</zorder>
    <zorder>pushButton_6</zorder>
    <zorder>tabWidget</zorder>
@@ -1521,7 +1413,6 @@ color: rgb(255, 255, 255);</string>
    <zorder>pushButton_7</zorder>
    <zorder>label_3</zorder>
    <zorder>label_14</zorder>
-   <zorder>label_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1535,8 +1426,6 @@ color: rgb(255, 255, 255);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

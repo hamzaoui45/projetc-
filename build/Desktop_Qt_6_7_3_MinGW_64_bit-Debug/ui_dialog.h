@@ -30,14 +30,12 @@ QT_BEGIN_NAMESPACE
 class Ui_Dialog
 {
 public:
-    QDialogButtonBox *buttonBox;
-    QPushButton *pushButton_8;
-    QLabel *label_3;
-    QPushButton *pushButton_4;
     QPushButton *pushButton_7;
     QPushButton *pushButton_9;
+    QPushButton *pushButton_4;
+    QLabel *label_3;
+    QLabel *label_7;
     QLabel *label_14;
-    QPushButton *pushButton_13;
     QTabWidget *tabWidget;
     QWidget *widget;
     QLabel *label_4;
@@ -82,55 +80,47 @@ public:
     QPushButton *pushButton_10;
     QTableWidget *tableWidget;
     QPushButton *pushButton_11;
-    QLabel *label_7;
-    QPushButton *pushButton_6;
+    QPushButton *pushButton_13;
     QLabel *label;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_6;
+    QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName("Dialog");
-        Dialog->resize(1260, 720);
-        buttonBox = new QDialogButtonBox(Dialog);
-        buttonBox->setObjectName("buttonBox");
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
-        buttonBox->setOrientation(Qt::Orientation::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok);
-        pushButton_8 = new QPushButton(Dialog);
-        pushButton_8->setObjectName("pushButton_8");
-        pushButton_8->setGeometry(QRect(40, 510, 151, 41));
-        pushButton_8->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
-        label_3 = new QLabel(Dialog);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(40, 120, 151, 51));
-        label_3->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
-        pushButton_4 = new QPushButton(Dialog);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(40, 220, 151, 41));
-        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        Dialog->resize(1195, 713);
         pushButton_7 = new QPushButton(Dialog);
         pushButton_7->setObjectName("pushButton_7");
-        pushButton_7->setGeometry(QRect(40, 410, 151, 41));
+        pushButton_7->setGeometry(QRect(40, 420, 151, 41));
         pushButton_7->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
         pushButton_9 = new QPushButton(Dialog);
         pushButton_9->setObjectName("pushButton_9");
-        pushButton_9->setGeometry(QRect(40, 600, 151, 41));
+        pushButton_9->setGeometry(QRect(40, 610, 151, 41));
         pushButton_9->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_4 = new QPushButton(Dialog);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(40, 230, 151, 41));
+        pushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_3 = new QLabel(Dialog);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(40, 130, 151, 51));
+        label_3->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        label_7 = new QLabel(Dialog);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(40, 90, 101, 20));
+        label_7->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
         label_14 = new QLabel(Dialog);
         label_14->setObjectName("label_14");
-        label_14->setGeometry(QRect(10, 20, 161, 91));
+        label_14->setGeometry(QRect(10, 30, 161, 91));
         label_14->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
         label_14->setTextFormat(Qt::TextFormat::RichText);
         label_14->setPixmap(QPixmap(QString::fromUtf8(":/logo.png")));
         label_14->setScaledContents(true);
-        pushButton_13 = new QPushButton(Dialog);
-        pushButton_13->setObjectName("pushButton_13");
-        pushButton_13->setGeometry(QRect(1030, 50, 131, 29));
-        pushButton_13->setStyleSheet(QString::fromUtf8("color : black;\n"
-"background-color: rgb(81, 182, 182);"));
         tabWidget = new QTabWidget(Dialog);
         tabWidget->setObjectName("tabWidget");
-        tabWidget->setGeometry(QRect(260, 130, 951, 641));
+        tabWidget->setGeometry(QRect(260, 140, 951, 641));
         tabWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(81, 182, 182);"));
         widget = new QWidget();
         widget->setObjectName("widget");
@@ -355,24 +345,32 @@ public:
         pushButton_10->raise();
         tableWidget->raise();
         pushButton_11->raise();
-        label_7 = new QLabel(Dialog);
-        label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(40, 80, 101, 20));
-        label_7->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
-        pushButton_6 = new QPushButton(Dialog);
-        pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setGeometry(QRect(40, 320, 151, 41));
-        pushButton_6->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_13 = new QPushButton(Dialog);
+        pushButton_13->setObjectName("pushButton_13");
+        pushButton_13->setGeometry(QRect(1030, 60, 131, 29));
+        pushButton_13->setStyleSheet(QString::fromUtf8("color : black;\n"
+"background-color: rgb(81, 182, 182);"));
         label = new QLabel(Dialog);
         label->setObjectName("label");
-        label->setGeometry(QRect(-10, -20, 1211, 131));
+        label->setGeometry(QRect(-10, -10, 1211, 131));
         label->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_8 = new QPushButton(Dialog);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(40, 520, 151, 41));
+        pushButton_8->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        pushButton_6 = new QPushButton(Dialog);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(40, 330, 151, 41));
+        pushButton_6->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 105, 107);"));
+        buttonBox = new QDialogButtonBox(Dialog);
+        buttonBox->setObjectName("buttonBox");
+        buttonBox->setGeometry(QRect(30, 250, 341, 32));
+        buttonBox->setOrientation(Qt::Orientation::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok);
 
         retranslateUi(Dialog);
-        QObject::connect(buttonBox, &QDialogButtonBox::accepted, Dialog, qOverload<>(&QDialog::accept));
-        QObject::connect(buttonBox, &QDialogButtonBox::rejected, Dialog, qOverload<>(&QDialog::reject));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Dialog);
@@ -381,13 +379,12 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        pushButton_8->setText(QCoreApplication::translate("Dialog", "Gestion rendez-vous", nullptr));
-        label_3->setText(QCoreApplication::translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">DASHBOARD</span></p></body></html>", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("Dialog", "Gestion Patients", nullptr));
         pushButton_7->setText(QCoreApplication::translate("Dialog", "Gestion ressources", nullptr));
         pushButton_9->setText(QCoreApplication::translate("Dialog", "Gestion Vaccins", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("Dialog", "Gestion Patients", nullptr));
+        label_3->setText(QCoreApplication::translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:700;\">DASHBOARD</span></p></body></html>", nullptr));
+        label_7->setText(QCoreApplication::translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700;\">LAKAHNI</span></p></body></html>", nullptr));
         label_14->setText(QString());
-        pushButton_13->setText(QCoreApplication::translate("Dialog", "D\303\251connexion", nullptr));
 #if QT_CONFIG(whatsthis)
         tabWidget->setWhatsThis(QCoreApplication::translate("Dialog", "<html><head/><body><p>ajout</p></body></html>", nullptr));
 #endif // QT_CONFIG(whatsthis)
@@ -442,9 +439,10 @@ public:
         ___qtablewidgetitem9->setText(QCoreApplication::translate("Dialog", "New Row", nullptr));
         pushButton_11->setText(QCoreApplication::translate("Dialog", "Ajouter ", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabWidgetPage4), QString());
-        label_7->setText(QCoreApplication::translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:700;\">LAKAHNI</span></p></body></html>", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("Dialog", "Gestion employ\303\251s", nullptr));
+        pushButton_13->setText(QCoreApplication::translate("Dialog", "D\303\251connexion", nullptr));
         label->setText(QString());
+        pushButton_8->setText(QCoreApplication::translate("Dialog", "Gestion rendez-vous", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("Dialog", "Gestion employ\303\251s", nullptr));
     } // retranslateUi
 
 };

@@ -3,8 +3,6 @@
 #include"gressource.h"
 #include"log.h"
 #include <QApplication>
-#include "mainwindowrdv.h"
-
 
 int main(int argc, char *argv[])
 {

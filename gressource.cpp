@@ -1,8 +1,6 @@
 #include "gressource.h"
 #include "ui_gressource.h"
 #include "ressources.h"
-#include "mainwindowrdv.h"
-
 #include "log.h"
 #include <QMessageBox>
 #include <QTableView>

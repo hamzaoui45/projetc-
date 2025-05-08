@@ -1,7 +1,6 @@
 #include "mainwindowrdv.h"
 #include "ui_mainwindowrdv.h"
 #include "rdv.h"
-#include "gressource.h"
 #include <QMessageBox>
 #include <QPdfWriter>
 #include <QPainter>
@@ -26,7 +25,6 @@
 #include <QMap>
 #include <QSerialPort>
 #include <QSerialPortInfo>
-#include "arduino.h"
 
 MainWindowrdv::MainWindowrdv(QWidget *parent)
     : QMainWindow(parent)
@@ -528,19 +526,3 @@ void MainWindowrdv::handleVaccineID(const QString &vaccineID)
         arduino->sendResponse("OFF");  // Send DENY in case of query error
     }
 }
-/*void MainWindow::on_pushButton_6_clicked()
-{
-    this->close();
-    gressource *gr = new gressource();
-    gr->show();
-
-}
-void MainWindow::on_pushButton_7_clicked()
-{
-    this->close();
-    MainWindowrdv *rdv = new MainWindowrdv(); // Initialize the MainWindowrdv object
-    rdv->show();
-
-
-}
-*/

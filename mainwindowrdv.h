@@ -8,7 +8,6 @@
 #include <QSet>
 #include <QMap>
 #include "arduino.h"
-#include "gressource.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,17 +35,13 @@ public slots:
     void on_liste_attente_clicked();
     void onRowClicked(const QModelIndex &index);
 
-
-
-
 private:
     void afficher();
     void updateCalendarColors();
     void on_calendarWidget_clicked(const QDate &date);
     void validatePassword(const QString &password);
     void handleVaccineID(const QString &vaccineID);
-    void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
+
 
 private:
     Ui::MainWindowrdv *ui;
