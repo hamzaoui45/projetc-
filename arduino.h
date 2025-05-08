@@ -12,41 +12,37 @@ class Arduino : public QObject
 
 public:
     explicit Arduino(QObject *parent = nullptr);
+    ~Arduino();
 
-    // Arduino connection methods
-    int connect_arduino();                    // Connect PC to Arduino (auto-detect)
-    bool connectArduino(const QString &portName, qint32 baudRate = 9600); // Manual connect
-    void close_arduino();                     // Close the serial connection
+    // Connexion et déconnexion
+    bool connectArduino(const QString &portName = "", qint32 baudRate = 9600);
+    void closeArduino();
 
-    // Data communication
-    void write_to_arduino(QByteArray data);   // Send raw bytes
-    void sendResponse(const QString &response); // Send SUCCESS/DENY
-    void send_vaccine_quantity(int quantity); // Send vaccine quantity
-    QByteArray read_from_arduino();           // Read data from Arduino
+    // Lecture et écriture
+    void writeToArduino(const QByteArray &data);
+    QByteArray readFromArduino();
+    void sendResponse(const QString &response); // Envoi de SUCCESS/DENY
+    void sendVaccineQuantity(int quantity); // Envoi de la quantité de vaccins
 
-    // Accessors
-    QSerialPort* getserial();                 // Return serial port pointer
-    QString getserial_port_name();            // Return port name
+    // Accesseurs
+    QSerialPort* getSerial();
+    QString getSerialPortName();
 
 signals:
-    void passwordReceived(const QString &password);   // Emitted when password is received
-    void serialDataReceived(const QString &data);     // Emitted when any serial data is received
-    void vaccineIdReceived(const QString &vaccineID); // Emitted when vaccine ID is received
-    void writeToArduino(const QByteArray &data);      // Signal to request writing to Arduino
+    void passwordReceived(const QString &password); // Signal pour mot de passe reçu
+    void serialDataReceived(const QString &data);   // Signal pour données série
+    void vaccineIdReceived(const QString &vaccineID); // Signal pour ID de vaccin
 
 private slots:
-    void readSerialData(); // Slot called on readyRead()
+    void readSerialData(); // Slot pour lire les données série
 
 private:
-    QSerialPort *serial;
-    QString serialBuffer;
-    QByteArray data; // Last read data
-
-    // Constants for vendor/product ID
-    static const quint16 arduino_uno_vendor_id = 9025;
-    static const quint16 arduino_uno_product_id = 67;
-    QString arduino_port_name;
-    bool arduino_is_available;
+    QSerialPort *serial; // Objet port série
+    QString serialBuffer; // Buffer pour accumuler les données série
+    QString arduinoPortName; // Nom du port série
+    bool arduinoIsAvailable; // Indicateur de disponibilité
+    static const quint16 arduinoUnoVendorId = 9025; // ID du vendeur Arduino Uno
+    static const quint16 arduinoUnoProductId = 67;  // ID du produit Arduino Uno
 };
 
 #endif // ARDUINO_H

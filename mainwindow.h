@@ -47,8 +47,6 @@ private slots:
     void updateA(); // New slot for updating quantity at 150 degrees
     //void handle_arduino();
     void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
-
 
 private:
     Ui::MainWindow *ui;

@@ -9,6 +9,8 @@
 #include <QTimer>
 #include <QBuffer>
 #include <QProcess>
+#include "mainwindowv.h"
+#include "gressource.h"
 namespace Ui {
 class log;
 }

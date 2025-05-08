@@ -78,7 +78,7 @@ bool Rdv::verif()
 
 
     QSqlQuery query;
-    query.prepare("SELECT COUNT(*) FROM vaccins WHERE nom_vac = :nom_vac");
+    query.prepare("SELECT COUNT(*) FROM VACCIN WHERE nom_vac = :nom_vac");
     query.bindValue(":nom_vac", nom_vac);
     if (!query.exec() || !query.next() || query.value(0).toInt() == 0) {
         errorMessages += "Le vaccin sélectionné n'existe pas.\n";
@@ -275,3 +275,4 @@ QStandardItemModel* Rdv::afficherListeAttenteAvecStatut()
 
     return model;
 }
+
